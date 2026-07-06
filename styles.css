@@ -356,6 +356,15 @@ h1 {
   font-size: clamp(18px, 2vw, 22px);
 }
 
+.intro p a,
+.early p a {
+  color: var(--green);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
 .section-heading {
   max-width: 760px;
   margin-bottom: 36px;
