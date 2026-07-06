@@ -27,10 +27,13 @@
         <span>etgar.ai</span>
       </a>
       <nav class="nav-links" aria-label="Page sections">
-        <a href="#how-it-works">How it works</a>
-        <a href="#proof">What exists</a>
-        <a href="#interest">Early interest</a>
+        <a href="#how-it-works" data-i18n="nav.how">How it works</a>
+        <a href="#proof" data-i18n="nav.proof">What exists</a>
+        <a href="#interest" data-i18n="nav.interest">Early interest</a>
       </nav>
+      <button class="lang-toggle" type="button" data-language-toggle aria-label="Switch language">
+        <span data-language-toggle-label>עברית</span>
+      </button>
     </header>
 
     <main id="top">
@@ -46,9 +49,9 @@
         <div class="twilight-sky" aria-hidden="true"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content reveal-on-scroll">
-          <p class="eyebrow">Working private prototype</p>
-          <h1 class="cursor-reactive" id="hero-title">A private AI operating layer for your life.</h1>
-          <p class="hero-lede">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Working private prototype</p>
+          <h1 class="cursor-reactive" id="hero-title" data-i18n="hero.title">A private AI operating layer for your life.</h1>
+          <p class="hero-lede" data-i18n="hero.lede">
             For people who want an AI system that remembers, coordinates, and
             stays under their control, with a personal OS live and working 24/7
             in the background.
@@ -57,10 +60,11 @@
             <a
               class="button button-primary"
               href="mailto:ai@bonar1.com?subject=Interested%20in%20etgar.ai&body=Hi%20Etgar%2C%0A%0AI%27m%20interested%20in%20the%20private%20AI%20operating%20layer.%20Tell%20me%20more.%0A"
+              data-i18n-href="mailto.primary"
             >
-              Register interest
+              <span data-i18n="hero.primaryCta">Register interest</span>
             </a>
-            <a class="button button-secondary" href="#how-it-works">
+            <a class="button button-secondary" href="#how-it-works" data-i18n="hero.secondaryCta">
               See what it does
             </a>
           </div>
@@ -68,13 +72,13 @@
       </section>
 
       <section class="section intro reveal-on-scroll" aria-labelledby="intro-title">
-        <div class="section-kicker">The idea</div>
+        <div class="section-kicker" data-i18n="intro.kicker">The idea</div>
         <div class="intro-grid">
-          <h2 id="intro-title">
+          <h2 id="intro-title" data-i18n="intro.title">
             Not another chatbot. A personal system that lives where life already
             happens.
           </h2>
-          <p>
+          <p data-i18n-html="intro.body">
             etgar.ai is a working pilot of a private personal OS with long-term
             memory, live and working 24/7 across daily life. <a href="#proof">See what exists today.</a>
           </p>
@@ -83,15 +87,15 @@
 
       <section class="section reveal-on-scroll" id="how-it-works" aria-labelledby="works-title">
         <div class="section-heading">
-          <p class="section-kicker">How it works</p>
-          <h2 class="cursor-reactive" id="works-title">Three ideas make it different.</h2>
+          <p class="section-kicker" data-i18n="works.kicker">How it works</p>
+          <h2 class="cursor-reactive" id="works-title" data-i18n="works.title">Three ideas make it different.</h2>
         </div>
 
         <div class="feature-grid">
           <article class="feature-card reveal-on-scroll">
             <span class="feature-number">01</span>
-            <h3>It remembers from sources</h3>
-            <p>
+            <h3 data-i18n="feature.memory.title">It remembers from sources</h3>
+            <p data-i18n="feature.memory.body">
               The assistant answers from real notes, logs, tasks, and records,
               not vague chat memory. Important facts are traceable back to where
               they came from.
@@ -99,8 +103,8 @@
           </article>
           <article class="feature-card reveal-on-scroll">
             <span class="feature-number">02</span>
-            <h3>It coordinates across life</h3>
-            <p>
+            <h3 data-i18n="feature.coordinate.title">It coordinates across life</h3>
+            <p data-i18n="feature.coordinate.body">
               It can work across email, calendar, Trello, WhatsApp, Telegram,
               grocery lists, travel plans, vendor tracking, and Home Assistant
               scenes, lights, sensors, cameras, cleaning robots, watering, alert
@@ -109,8 +113,8 @@
           </article>
           <article class="feature-card reveal-on-scroll">
             <span class="feature-number">03</span>
-            <h3>It stays inspectable</h3>
-            <p>
+            <h3 data-i18n="feature.control.title">It stays inspectable</h3>
+            <p data-i18n="feature.control.body">
               The system is built around readable knowledge, explicit
               permissions, human approval for durable memory, and the ability to
               move between models over time.
@@ -121,71 +125,79 @@
 
       <section class="section split-section reveal-on-scroll" aria-labelledby="inside-title">
         <div>
-          <p class="section-kicker">Inside the prototype</p>
-          <h2 class="cursor-reactive" id="inside-title">A small team of focused agents, not one giant generalist.</h2>
+          <p class="section-kicker" data-i18n="inside.kicker">Inside the prototype</p>
+          <h2 class="cursor-reactive" id="inside-title" data-i18n="inside.title">A small team of focused agents, not one giant generalist.</h2>
         </div>
         <div class="stacked-list">
           <div class="list-row">
-            <span>Main assistant</span>
-            <p>A live personal OS for private conversation, memory, inbox, tasks, and daily coordination.</p>
+            <span data-i18n="inside.main.title">Main assistant</span>
+            <p data-i18n="inside.main.body">A live personal OS for private conversation, memory, inbox, tasks, and daily coordination.</p>
           </div>
           <div class="list-row">
-            <span>Trip agent</span>
-            <p>Dedicated travel planning inside family trip groups.</p>
+            <span data-i18n="inside.trip.title">Trip agent</span>
+            <p data-i18n="inside.trip.body">Dedicated travel planning inside family trip groups.</p>
           </div>
           <div class="list-row">
-            <span>Grocery agent</span>
-            <p>Shared shopping list management with automatic cleanup and categories.</p>
+            <span data-i18n="inside.grocery.title">Grocery agent</span>
+            <p data-i18n="inside.grocery.body">Shared shopping list management with automatic cleanup and categories.</p>
           </div>
           <div class="list-row">
-            <span>Home control</span>
-            <p>Home Assistant access for lights, scenes, sensors, cameras, cleaning robots, watering, alerts, and household routines.</p>
+            <span data-i18n="inside.home.title">Home control</span>
+            <p data-i18n="inside.home.body">Home Assistant access for lights, scenes, sensors, cameras, cleaning robots, watering, alerts, and household routines.</p>
           </div>
           <div class="list-row">
-            <span>Watchdogs</span>
-            <p>Nightly checks, fallbacks, canary questions, and backups.</p>
+            <span data-i18n="inside.finance.title">Finance ops</span>
+            <p data-i18n="inside.finance.body">WhatsApp capture for personal and SME invoices, receipts, payments, reimbursements, and follow-ups.</p>
+          </div>
+          <div class="list-row">
+            <span data-i18n="inside.watchdogs.title">Watchdogs</span>
+            <p data-i18n="inside.watchdogs.body">Nightly checks, fallbacks, canary questions, and backups.</p>
           </div>
         </div>
       </section>
 
       <section class="section proof reveal-on-scroll" id="proof" aria-labelledby="proof-title">
         <div class="section-heading">
-          <p class="section-kicker">What exists today</p>
-          <h2 class="cursor-reactive" id="proof-title">This is early, but not theoretical.</h2>
+          <p class="section-kicker" data-i18n="proof.kicker">What exists today</p>
+          <h2 class="cursor-reactive" id="proof-title" data-i18n="proof.title">This is early, but not theoretical.</h2>
         </div>
         <div class="proof-grid">
           <div class="proof-item">
-            <strong>WhatsApp and Telegram</strong>
-            <span>Daily interaction in private and family contexts.</span>
+            <strong data-i18n="proof.messaging.title">WhatsApp and Telegram</strong>
+            <span data-i18n="proof.messaging.body">Daily interaction in private and family contexts.</span>
           </div>
           <div class="proof-item">
-            <strong>Home and family ops</strong>
-            <span>Home Assistant, cameras, cleaning, watering, alerts, groceries, trips, vendors, and receipts.</span>
+            <strong data-i18n="proof.home.title">Home and family ops</strong>
+            <span data-i18n="proof.home.body">Home Assistant, cameras, cleaning, watering, alerts, groceries, trips, vendors, and receipts.</span>
           </div>
           <div class="proof-item">
-            <strong>Inbox and calendar</strong>
-            <span>Summaries, lookups, and day-ahead awareness.</span>
+            <strong data-i18n="proof.inbox.title">Inbox and calendar</strong>
+            <span data-i18n="proof.inbox.body">Summaries, lookups, and day-ahead awareness.</span>
           </div>
           <div class="proof-item">
-            <strong>Tasks and projects</strong>
-            <span>Trello and monday.com workflows, personal notes, and project continuity.</span>
+            <strong data-i18n="proof.tasks.title">Tasks and projects</strong>
+            <span data-i18n="proof.tasks.body">Trello and monday.com workflows, personal notes, and project continuity.</span>
           </div>
           <div class="proof-item">
-            <strong>Human-approved memory</strong>
-            <span>Weekly review before facts enter long-term memory.</span>
+            <strong data-i18n="proof.finance.title">Personal and SME finance</strong>
+            <span data-i18n="proof.finance.body">Invoices, receipts, payments, reimbursements, vendor follow-ups, and shared expenses captured from WhatsApp.</span>
           </div>
           <div class="proof-item">
-            <strong>Resilience layer</strong>
-            <span>Always-on checks, fallbacks, backups, and maintenance logs.</span>
+            <strong data-i18n="proof.approval.title">Human-approved memory</strong>
+            <span data-i18n="proof.approval.body">Weekly review before facts enter long-term memory.</span>
+          </div>
+          <div class="proof-item">
+            <strong data-i18n="proof.resilience.title">Resilience layer</strong>
+            <span data-i18n="proof.resilience.body">Always-on checks, fallbacks, backups, and maintenance logs.</span>
           </div>
         </div>
       </section>
 
       <section class="section early reveal-on-scroll" id="interest" aria-labelledby="interest-title">
         <div class="early-content">
-          <p class="section-kicker">Early interest</p>
-          <h2 class="cursor-reactive" id="interest-title">I am exploring a small group of early conversations.</h2>
-          <p>
+          <p class="section-kicker" data-i18n="interest.kicker">Early interest</p>
+          <h2 class="cursor-reactive" id="interest-title" data-i18n="interest.title">I am exploring a small group of early conversations.</h2>
+          <p data-i18n="interest.body">
             The current system was built for one real household. The next step
             is learning who else wants this kind of AI partner, what they would
             trust it with, and where the first product wedge should begin.
@@ -193,8 +205,9 @@
           <a
             class="button button-primary"
             href="mailto:ai@bonar1.com?subject=Interested%20in%20etgar.ai&body=Hi%20Etgar%2C%0A%0AI%27m%20interested%20in%20the%20private%20AI%20operating%20layer.%20A%20bit%20about%20what%20I%27d%20want%20it%20to%20help%20with%3A%0A"
+            data-i18n-href="mailto.interest"
           >
-            Tell me you are interested
+            <span data-i18n="interest.cta">Tell me you are interested</span>
           </a>
         </div>
       </section>
@@ -202,7 +215,7 @@
 
     <footer class="site-footer">
       <span>etgar.ai</span>
-      <span>Questions: <a href="mailto:ai@bonar1.com">ai@bonar1.com</a></span>
+      <span data-i18n-html="footer.questions">Questions: <a href="mailto:ai@bonar1.com">ai@bonar1.com</a></span>
     </footer>
   </body>
 </html>
