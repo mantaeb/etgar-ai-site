@@ -175,7 +175,7 @@ a {
 
 .hero {
   position: relative;
-  min-height: 92svh;
+  min-height: max(760px, 92svh);
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -237,8 +237,9 @@ a {
 .hero-content {
   position: relative;
   z-index: 3;
-  width: min(760px, calc(100% - 40px));
-  margin: 0 0 clamp(48px, 10vh, 104px) clamp(20px, 7vw, 88px);
+  justify-self: start;
+  width: min(760px, calc(100% - clamp(40px, 10vw, 128px)));
+  margin: 0 0 clamp(44px, 7vh, 84px) clamp(20px, 5vw, 64px);
 }
 
 .eyebrow,
@@ -263,12 +264,12 @@ p {
 }
 
 h1 {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: 22px;
   font-family: var(--font-display);
-  font-size: clamp(56px, 8vw, 116px);
+  font-size: clamp(54px, 7vw, 100px);
   font-weight: 850;
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
@@ -604,6 +605,12 @@ html[dir="rtl"] .early {
   text-align: right;
 }
 
+html[dir="rtl"] .hero-content {
+  justify-self: end;
+  margin-left: 0;
+  margin-right: clamp(20px, 5vw, 64px);
+}
+
 html[dir="rtl"] .early {
   justify-items: stretch;
 }
@@ -636,7 +643,7 @@ html[dir="rtl"] .hero-actions {
   }
 
   .hero {
-    min-height: 90svh;
+    min-height: max(700px, 90svh);
   }
 
   .hero-overlay {
@@ -650,6 +657,11 @@ html[dir="rtl"] .hero-actions {
     width: min(100% - 40px, 640px);
     margin-left: 20px;
     margin-bottom: 42px;
+  }
+
+  html[dir="rtl"] .hero-content {
+    margin-left: 0;
+    margin-right: 20px;
   }
 
   .intro-grid,
@@ -719,7 +731,7 @@ html[dir="rtl"] .hero-actions {
   }
 
   h1 {
-    font-size: 52px;
+    font-size: 48px;
   }
 
   .hero-lede {
