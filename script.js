@@ -45,13 +45,13 @@ const translations = {
     "proof.messaging.title": "WhatsApp and Telegram",
     "proof.messaging.body": "Daily interaction in private and family contexts.",
     "proof.home.title": "Home and family ops",
-    "proof.home.body": "Home Assistant, cameras, cleaning, watering, alerts, groceries, trips, vendors, and receipts.",
+    "proof.home.body": "Home Assistant, cameras, cleaning, watering, alerts, groceries, and trips.",
     "proof.inbox.title": "Inbox and calendar",
     "proof.inbox.body": "Summaries, lookups, and day-ahead awareness.",
     "proof.tasks.title": "Tasks and projects",
     "proof.tasks.body": "Trello and monday.com workflows, personal notes, and project continuity.",
     "proof.finance.title": "Personal and SME finance",
-    "proof.finance.body": "Invoices, receipts, payments, reimbursements, vendor follow-ups, and shared expenses captured from WhatsApp.",
+    "proof.finance.body": "Invoices, receipts, payments, reimbursements, vendor tracking, and shared expenses captured from WhatsApp.",
     "proof.approval.title": "Human-approved memory",
     "proof.approval.body": "Weekly review before facts enter long-term memory.",
     "proof.resilience.title": "Resilience layer",
@@ -107,12 +107,12 @@ const translations = {
     "proof.messaging.title": "ערוצי WhatsApp ו-Telegram",
     "proof.messaging.body": "אינטראקציה יומיומית בהקשרים פרטיים ומשפחתיים.",
     "proof.home.title": "בית ומשפחה",
-    "proof.home.body": "ה-Home Assistant, מצלמות, ניקיון, השקיה, התראות, קניות, נסיעות, ספקים וקבלות.",
+    "proof.home.body": "ה-Home Assistant, מצלמות, ניקיון, השקיה, התראות, קניות ונסיעות.",
     "proof.inbox.title": "אימייל ויומן",
     "proof.inbox.body": "סיכומים, חיפושים ומודעות ליום הקרוב.",
     "proof.tasks.title": "משימות ופרויקטים",
     "proof.tasks.body": "תהליכי עבודה ב-Trello וב-monday.com, הערות אישיות והמשכיות פרויקטים.",
-    "proof.finance.title": "פיננסים אישיים ועסק קטן",
+    "proof.finance.title": "פיננסים אישיים ולעסקים קטנים",
     "proof.finance.body": "חשבוניות, קבלות, תשלומים, החזרים, מעקב ספקים והוצאות משותפות שנקלטות מ-WhatsApp.",
     "proof.approval.title": "זיכרון באישור אנושי",
     "proof.approval.body": "סקירה שבועית לפני שעובדות נכנסות לזיכרון ארוך טווח.",
@@ -135,8 +135,25 @@ function clamp(value, min, max) {
 }
 
 function getStoredLanguage() {
+  const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+  if (requestedLanguage === "he" || requestedLanguage === "en") {
+    return requestedLanguage;
+  }
+
   const storedLanguage = window.localStorage.getItem("etgarAiLanguage");
   return storedLanguage === "he" ? "he" : "en";
+}
+
+function syncLanguageUrl(language) {
+  const url = new URL(window.location.href);
+
+  if (language === "he") {
+    url.searchParams.set("lang", "he");
+  } else {
+    url.searchParams.delete("lang");
+  }
+
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
 function applyLanguage(language) {
@@ -183,6 +200,7 @@ function applyLanguage(language) {
   }
 
   window.localStorage.setItem("etgarAiLanguage", language);
+  syncLanguageUrl(language);
 }
 
 function initLanguageToggle() {
