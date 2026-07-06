@@ -41,7 +41,7 @@ const translations = {
     "inside.watchdogs.title": "Watchdogs",
     "inside.watchdogs.body": "Nightly checks, fallbacks, canary questions, and backups.",
     "proof.kicker": "What exists today",
-    "proof.title": "This is early, but not theoretical.",
+    "proof.title": "Already working, still evolving.",
     "proof.messaging.title": "WhatsApp and Telegram",
     "proof.messaging.body": "Daily interaction in private and family contexts.",
     "proof.vault.title": "Memory vault",
@@ -59,8 +59,8 @@ const translations = {
     "proof.resilience.title": "Resilience layer",
     "proof.resilience.body": "Always-on checks, fallbacks, backups, and maintenance logs.",
     "founder.kicker": "Who is behind it",
-    "founder.title": "Built by Etgar Bonar as a working personal AI system.",
-    "founder.body": 'I build marketing, growth, and operating systems. This prototype grew from real daily use. <a href="https://www.linkedin.com/in/etgar1/" target="_blank" rel="noopener">LinkedIn</a>',
+    "founder.title": 'Built by <a href="https://www.linkedin.com/in/etgar1/" target="_blank" rel="noopener">Etgar Bonar</a> as a personal system that works in practice, born from personal need and a lot of curiosity.',
+    "founder.body": "",
     "interest.kicker": "Early interest",
     "interest.title": "I am exploring a small group of early conversations.",
     "interest.body": "",
@@ -109,7 +109,7 @@ const translations = {
     "inside.watchdogs.title": "מנגנוני בקרה",
     "inside.watchdogs.body": "בדיקות ליליות, נתיבי גיבוי, שאלות קנרית, וגיבויים.",
     "proof.kicker": "מה קיים היום",
-    "proof.title": "זה מוקדם, אבל זה לא תיאורטי.",
+    "proof.title": "זה כבר עובד, ועדיין מתפתח.",
     "proof.messaging.title": "ערוצי WhatsApp ו-Telegram",
     "proof.messaging.body": "אינטראקציה יומיומית בהקשרים פרטיים ומשפחתיים.",
     "proof.vault.title": "כספת זיכרון ומוח שני",
@@ -127,8 +127,8 @@ const translations = {
     "proof.resilience.title": "שכבת אמינות",
     "proof.resilience.body": "בדיקות קבועות, נתיבי גיבוי, גיבויים ולוגים של תחזוקה.",
     "founder.kicker": "מי עומד מאחורי זה",
-    "founder.title": "נבנה על ידי אתגר בונר כמערכת AI אישית שעובדת בפועל.",
-    "founder.body": 'אני בונה מערכות שיווק, צמיחה ותפעול. הפיילוט הזה נולד מתוך שימוש יומיומי אמיתי. <a href="https://www.linkedin.com/in/etgar1/" target="_blank" rel="noopener">לינקדאין</a>',
+    "founder.title": 'נבנה על ידי <a href="https://www.linkedin.com/in/etgar1/" target="_blank" rel="noopener">אתגר בונר</a> כמערכת אישית שעובדת בפועל ונולדה מתוך צורך אישי וסקרנות רבה.',
+    "founder.body": "",
     "interest.kicker": "עניין ראשוני",
     "interest.title": "בואו נדבר על הצרכים שלכם.",
     "interest.body": "",
@@ -291,7 +291,7 @@ function initCursorEffects() {
     root.style.setProperty("--cursor-active", "0");
   });
 
-  document.querySelectorAll(".cursor-reactive").forEach((element) => {
+  document.querySelectorAll(".cursor-reactive, .section-kicker, .eyebrow").forEach((element) => {
     element.addEventListener("pointermove", (event) => {
       const rect = element.getBoundingClientRect();
       const x = ((event.clientX - rect.left) / rect.width) * 100;

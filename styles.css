@@ -244,16 +244,57 @@ a {
 
 .eyebrow,
 .section-kicker {
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
   margin: 0 0 14px;
+  --reactive-base: var(--amber);
+  --reactive-hot: var(--green);
   color: var(--amber);
-  font-size: 12px;
+  font-size: clamp(13px, 1vw, 15px);
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    filter 220ms ease,
+    transform 220ms ease;
 }
 
 .hero .eyebrow {
+  --reactive-base: #f4bc7f;
+  --reactive-hot: #fff4df;
   color: #f4bc7f;
+}
+
+.eyebrow::after,
+.section-kicker::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 2px;
+  content: "";
+  opacity: 0.42;
+  background: linear-gradient(90deg, var(--reactive-hot), transparent);
+  transform: scaleX(0.36);
+  transform-origin: left center;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.eyebrow.is-lit,
+.section-kicker.is-lit {
+  color: var(--reactive-hot);
+  filter: drop-shadow(0 8px 18px rgba(181, 104, 47, 0.16));
+  transform: translateY(-1px);
+}
+
+.eyebrow.is-lit::after,
+.section-kicker.is-lit::after {
+  opacity: 0.92;
+  transform: scaleX(1);
 }
 
 h1,
@@ -546,24 +587,17 @@ h1 {
 }
 
 .founder-content {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1.2fr);
-  gap: clamp(24px, 6vw, 80px);
-  align-items: start;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  text-align: center;
 }
 
 .founder h2 {
-  margin: 0;
+  margin: 0 auto;
   font-family: var(--font-display);
-  font-size: clamp(26px, 3.5vw, 44px);
+  font-size: clamp(24px, 3vw, 38px);
   font-weight: 850;
-  line-height: 1.12;
-}
-
-.founder p:not(.section-kicker) {
-  margin: 0;
-  color: var(--muted);
-  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.2;
 }
 
 .founder a {
@@ -648,6 +682,15 @@ html[dir="rtl"] .hero-content,
 html[dir="rtl"] .section-heading,
 html[dir="rtl"] .early {
   text-align: right;
+}
+
+html[dir="rtl"] .eyebrow::after,
+html[dir="rtl"] .section-kicker::after {
+  transform-origin: right center;
+}
+
+html[dir="rtl"] .founder {
+  text-align: center;
 }
 
 html[dir="rtl"] .hero-content {
