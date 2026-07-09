@@ -5,7 +5,7 @@ let cursorIdleTimer;
 
 const translations = {
   en: {
-    "meta.title": "etgar.ai | A private AI operating layer for your life",
+    "meta.title": "A private AI operating layer for your life",
     "meta.description": "A working personal AI prototype for people who want an AI system that remembers, coordinates, and stays under their control.",
     "nav.how": "How it works",
     "nav.proof": "What exists",
@@ -75,7 +75,7 @@ const translations = {
     "toggle.aria": "Switch to Hebrew",
   },
   he: {
-    "meta.title": "etgar.ai | A private AI operating layer for your life",
+    "meta.title": "A private AI operating layer for your life",
     "meta.description": "A working personal AI prototype for people who want an AI system that remembers, coordinates, and stays under their control.",
     "nav.how": "איך זה עובד",
     "nav.proof": "מה כבר קיים",
