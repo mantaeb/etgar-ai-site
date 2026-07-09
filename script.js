@@ -75,8 +75,8 @@ const translations = {
     "toggle.aria": "Switch to Hebrew",
   },
   he: {
-    "meta.title": "שכבת הפעלה פרטית של AI לחיים | etgar.ai",
-    "meta.description": "אב טיפוס עובד של AI אישי לאנשים שרוצים מערכת שזוכרת, מתאמת, ונשארת בשליטתם.",
+    "meta.title": "etgar.ai | A private AI operating layer for your life",
+    "meta.description": "A working personal AI prototype for people who want an AI system that remembers, coordinates, and stays under their control.",
     "nav.how": "איך זה עובד",
     "nav.proof": "מה כבר קיים",
     "nav.interest": "שיחת היכרות",
@@ -189,7 +189,7 @@ function applyLanguage(language) {
   }
 
   if (ogDescription) {
-    ogDescription.setAttribute("content", dictionary["hero.lede"]);
+    ogDescription.setAttribute("content", dictionary["meta.description"]);
   }
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
