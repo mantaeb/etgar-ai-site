@@ -17,7 +17,7 @@ const translations = {
     "hero.secondaryCta": "See what it does",
     "intro.kicker": "The idea",
     "intro.title": "Not another chatbot. A personal system that lives where life already happens.",
-    "intro.body": 'etgar.ai is a working pilot of a private personal OS with long-term memory. It creates and manages a readable second-brain vault that stays active across daily life. <a href="#proof">See what exists today.</a>',
+    "intro.body": "etgar.ai is a working pilot of a private personal OS with long-term memory. It creates and manages a readable second-brain vault that stays active across daily life.",
     "works.kicker": "How it works",
     "works.title": "Three ideas make it different.",
     "feature.memory.title": "It remembers from sources",
