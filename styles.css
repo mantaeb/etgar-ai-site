@@ -127,9 +127,6 @@ a {
   gap: 10px;
   font-weight: 750;
   letter-spacing: 0;
-}
-
-html[lang="en"] .brand {
   visibility: hidden;
 }
 
