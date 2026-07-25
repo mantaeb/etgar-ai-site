@@ -129,6 +129,10 @@ a {
   letter-spacing: 0;
 }
 
+html[lang="en"] .brand {
+  visibility: hidden;
+}
+
 .brand-mark {
   width: 22px;
   height: 22px;
