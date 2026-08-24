@@ -1,0 +1,21 @@
+# Private AI
+
+> A private AI operating layer for individuals and families, designed to remember from sources, coordinate across life and remain under the owner's control.
+
+Canonical page: https://ai.bonar1.com/
+Builder: Etgar Bonar
+Contact: ai@bonar1.com
+
+## Core ideas
+
+- Long-term context comes from inspectable sources rather than vague conversational memory.
+- Focused assistants coordinate across personal administration, family and travel, household and finance, connected home and information.
+- Permissions, approval, logs, fallbacks and backups keep the owner in control.
+- The service is based on a working personal operating system rather than a speculative product concept.
+
+## Related canonical pages
+
+- Behind the build: https://ai-build.bonar1.com/
+- Etgar Bonar: https://www.linkedin.com/in/etgar1/
+
+This file is a supplementary map. The HTML page above is the canonical source.
