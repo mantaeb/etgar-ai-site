@@ -127,7 +127,6 @@ a {
   gap: 10px;
   font-weight: 750;
   letter-spacing: 0;
-  visibility: hidden;
 }
 
 .brand-mark {
@@ -151,6 +150,9 @@ a {
 }
 
 .lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 76px;
   min-height: 38px;
   border: 1px solid rgba(255, 255, 255, 0.45);
@@ -581,6 +583,18 @@ h1 {
   font-size: 18px;
 }
 
+.proof-item ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-inline-start: 1.2rem;
+  color: var(--muted);
+}
+
+.proof-item li::marker {
+  color: var(--amber);
+}
+
 .founder {
   padding-top: clamp(56px, 7vw, 92px);
   padding-bottom: clamp(56px, 7vw, 92px);
@@ -611,6 +625,39 @@ h1 {
 
 .founder a:hover {
   color: #084c91;
+}
+
+.founder .button {
+  width: fit-content;
+  margin: 28px auto 0;
+  border-color: rgba(36, 77, 61, 0.34);
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.28);
+  text-decoration: none;
+}
+
+.trust {
+  border-top: 1px solid var(--line);
+}
+
+.boundary {
+  width: min(860px, calc(100% - 40px));
+  text-align: center;
+}
+
+.boundary h2 {
+  margin-bottom: 22px;
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.8vw, 62px);
+  font-weight: 850;
+  line-height: 1.08;
+}
+
+.boundary > p:last-child {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(18px, 2vw, 23px);
 }
 
 .early {
@@ -749,7 +796,7 @@ html[dir="rtl"] .hero-actions {
   justify-content: flex-start;
 }
 
-.reveal-on-scroll {
+.motion-enabled .reveal-on-scroll {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -757,7 +804,7 @@ html[dir="rtl"] .hero-actions {
     transform 680ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.reveal-on-scroll.in-view {
+.motion-enabled .reveal-on-scroll.in-view {
   opacity: 1;
   transform: translateY(0);
 }

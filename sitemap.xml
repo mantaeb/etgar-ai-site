@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
   <url>
     <loc>https://ai.bonar1.com/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ai.bonar1.com/" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://ai.bonar1.com/he/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.bonar1.com/" />
+  </url>
+  <url>
+    <loc>https://ai.bonar1.com/he/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ai.bonar1.com/" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://ai.bonar1.com/he/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.bonar1.com/" />
   </url>
 </urlset>

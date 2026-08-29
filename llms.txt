@@ -2,20 +2,24 @@
 
 > A private AI operating layer for individuals and families, designed to remember from sources, coordinate across life and remain under the owner's control.
 
-Canonical page: https://ai.bonar1.com/
+English page: https://ai.bonar1.com/
+Hebrew page: https://ai.bonar1.com/he/
 Builder: Etgar Bonar
 Contact: ai@bonar1.com
 
-## Core ideas
+## What exists today
 
-- Long-term context comes from inspectable sources rather than vague conversational memory.
-- Focused assistants coordinate across personal administration, family and travel, household and finance, connected home and information.
-- Permissions, approval, logs, fallbacks and backups keep the owner in control.
-- The service is based on a working personal operating system rather than a speculative product concept.
+- Capability: daily use through WhatsApp and Telegram, with focused agents for travel, groceries, chores, allowance and finance.
+- Reliability: deterministic self-audits, canary checks, provider fallbacks, offsite backups, a recovery runbook and an incident log.
+- Governance: task-scoped tools, human approval for durable memory and sensitive actions, plus recurring usage and cost reviews.
+- Architecture: the operating layer and readable knowledge base run on a private home server. External AI models are interchangeable services.
 
-## Related canonical pages
+## Current boundary
 
-- Behind the build: https://ai-build.bonar1.com/
+This is a working personal system running in one household, not an off-the-shelf product. Etgar is holding a small number of private conversations with people interested in a similar system built around their lives.
+
+## Identity reference
+
 - Etgar Bonar: https://www.linkedin.com/in/etgar1/
 
-This file is a supplementary map. The HTML page above is the canonical source.
+This file is a supplementary map. The linked HTML pages are the canonical sources.
