@@ -727,7 +727,10 @@ html[dir="rtl"] {
   text-align: right;
 }
 
-html[dir="rtl"] .brand,
+html[dir="rtl"] .brand {
+  direction: rtl;
+}
+
 html[dir="rtl"] .lang-toggle {
   direction: ltr;
 }
