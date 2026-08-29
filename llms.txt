@@ -9,10 +9,12 @@ Contact: ai@bonar1.com
 
 ## What exists today
 
-- Capability: daily use through WhatsApp and Telegram, with focused agents for travel, groceries, chores, allowance and finance.
-- Reliability: deterministic self-audits, canary checks, provider fallbacks, offsite backups, a recovery runbook and an incident log.
+- Capability: daily use through WhatsApp and Telegram in English and Hebrew, with focused agents for travel, groceries, chores, allowance and finance.
+- Domains: personal administration, family and travel, household and finance, smart home and broad health-data organization.
+- Reliability: deterministic self-audits, canary checks, provider fallbacks, offsite backups, a recovery runbook and an incident log. Watchers detect critical file replacement, session failures and intrusion events, repair recoverable states and alert when attention is needed.
 - Governance: task-scoped tools, human approval for durable memory and sensitive actions, plus recurring usage and cost reviews.
 - Architecture: the operating layer and readable knowledge base run on a private home server. External AI models are interchangeable services.
+- Builder proof: Etgar also built a mobile development workspace so he can inspect, program and improve the system from anywhere.
 
 ## Current boundary
 

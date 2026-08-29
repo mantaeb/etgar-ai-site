@@ -1,6 +1,6 @@
 :root {
   --ink: #18211e;
-  --muted: #5e675f;
+  --muted: #46514b;
   --paper: #f6f2e8;
   --paper-strong: #fffaf0;
   --line: rgba(24, 33, 30, 0.16);
@@ -11,7 +11,6 @@
   --white: #ffffff;
   --shadow: 0 24px 70px rgba(24, 33, 30, 0.14);
   --twilight: 0;
-  --night: 0;
   --cursor-x: 50vw;
   --cursor-y: 50vh;
   --cursor-active: 0;
@@ -30,42 +29,14 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    linear-gradient(180deg, rgba(246, 242, 232, calc(1 - var(--night) * 0.35)), rgba(16, 25, 32, calc(var(--night) * 0.72))),
-    var(--paper);
+  background: var(--paper);
   font-family: var(--font-body);
   line-height: 1.5;
 }
 
-body::after {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  content: "";
-  opacity: calc(var(--night) * 0.5);
-  background:
-    radial-gradient(circle at 76% 15%, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.4px),
-    radial-gradient(circle at 61% 42%, rgba(255, 255, 255, 0.78) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 92% 66%, rgba(255, 221, 174, 0.75) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 31% 76%, rgba(255, 255, 255, 0.58) 0 1px, transparent 1.4px);
-}
-
-.ambient-night,
 .cursor-halo {
   position: fixed;
   pointer-events: none;
-}
-
-.ambient-night {
-  inset: 0;
-  z-index: 0;
-  opacity: calc(var(--night) * 0.58);
-  background:
-    radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(244, 188, 127, 0.16), transparent 18rem),
-    linear-gradient(180deg, rgba(10, 17, 25, 0), rgba(9, 15, 23, 0.52) 42%, rgba(6, 10, 17, 0.88));
-  mix-blend-mode: multiply;
 }
 
 .cursor-halo {
@@ -75,7 +46,7 @@ body::after {
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  opacity: calc(var(--cursor-active) * (0.32 + var(--night) * 0.28));
+  opacity: calc(var(--cursor-active) * 0.32);
   background:
     radial-gradient(circle, rgba(255, 218, 166, 0.38), rgba(130, 211, 186, 0.16) 28%, transparent 66%);
   filter: blur(8px);
@@ -452,7 +423,7 @@ h1 {
 .proof-item {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 250, 240, calc(0.72 - var(--night) * 0.18));
+  background: rgba(255, 250, 240, 0.82);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   transition:
     border-color 260ms ease,
@@ -465,7 +436,7 @@ h1 {
   border-color: rgba(181, 104, 47, 0.38);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.46) inset,
-    0 18px 44px rgba(22, 35, 45, calc(0.08 + var(--night) * 0.14));
+    0 18px 44px rgba(22, 35, 45, 0.08);
   transform: translateY(-3px);
 }
 
@@ -532,7 +503,7 @@ h1 {
   padding-left: clamp(20px, 5vw, 64px);
   padding-right: clamp(20px, 5vw, 64px);
   background:
-    linear-gradient(180deg, rgba(255, 250, 240, calc(0.92 - var(--night) * 0.28)), rgba(19, 31, 39, calc(var(--night) * 0.42))),
+    linear-gradient(180deg, rgba(255, 250, 240, 0.96), rgba(246, 242, 232, 0.9)),
     var(--paper-strong);
 }
 
@@ -554,7 +525,7 @@ h1 {
   z-index: -1;
   pointer-events: none;
   content: "";
-  opacity: calc(var(--night) * 0.74);
+  opacity: 0;
   background: rgba(246, 242, 232, 0.9);
   filter: blur(28px);
 }
@@ -613,6 +584,13 @@ h1 {
   font-size: clamp(24px, 3vw, 38px);
   font-weight: 850;
   line-height: 1.2;
+}
+
+.founder-proof {
+  max-width: 720px;
+  margin: 22px auto 0;
+  color: var(--muted);
+  font-size: clamp(17px, 1.7vw, 21px);
 }
 
 .founder a {
@@ -678,7 +656,7 @@ h1 {
 
 .early::before {
   inset: 0;
-  opacity: calc(0.18 + var(--night) * 0.2);
+  opacity: 0.18;
   background:
     radial-gradient(circle at 80% 18%, rgba(255, 250, 240, 0.18), transparent 20rem),
     radial-gradient(circle at 18% 76%, rgba(244, 188, 127, 0.14), transparent 22rem);
@@ -727,7 +705,7 @@ h1 {
   padding: 28px clamp(20px, 5vw, 64px);
   border-top: 1px solid var(--line);
   font-size: 14px;
-  background: rgba(8, 14, 20, calc(var(--night) * 0.72));
+  background: rgba(255, 250, 240, 0.72);
 }
 
 .site-footer span {
@@ -735,7 +713,7 @@ h1 {
 }
 
 .site-footer span:first-child {
-  color: color-mix(in srgb, var(--ink), white calc(var(--night) * 72%));
+  color: var(--ink);
   font-weight: 800;
 }
 
@@ -875,7 +853,6 @@ html[dir="rtl"] .hero-actions {
     transform: none;
   }
 
-  .ambient-night,
   .cursor-halo,
   body::after {
     display: none;
@@ -892,10 +869,6 @@ html[dir="rtl"] .hero-actions {
     display: none;
   }
 
-  .ambient-night {
-    background:
-      linear-gradient(180deg, rgba(10, 17, 25, 0), rgba(9, 15, 23, 0.42) 42%, rgba(6, 10, 17, 0.78));
-  }
 }
 
 @media (max-width: 560px) {

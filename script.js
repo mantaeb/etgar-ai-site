@@ -9,10 +9,6 @@ function clamp(value, min, max) {
 
 function updateScrollEffects() {
   const hero = document.querySelector(".hero");
-  const pageHeight = Math.max(root.scrollHeight - window.innerHeight, 1);
-  const nightProgress = clamp(window.scrollY / pageHeight, 0, 1);
-
-  root.style.setProperty("--night", Math.pow(nightProgress, 0.82).toFixed(3));
 
   if (hero) {
     const heroHeight = hero.offsetHeight || window.innerHeight;
@@ -83,9 +79,21 @@ function initCursorEffects() {
   });
 }
 
+function restoreFragmentPosition() {
+  if (!window.location.hash) return;
+
+  const target = document.querySelector(window.location.hash);
+  if (!target) return;
+
+  window.requestAnimationFrame(() => target.scrollIntoView());
+}
+
 window.addEventListener("scroll", updateScrollEffects, { passive: true });
 window.addEventListener("resize", updateScrollEffects);
+window.addEventListener("load", restoreFragmentPosition);
 
 updateScrollEffects();
 initReveals();
 initCursorEffects();
+restoreFragmentPosition();
+window.setTimeout(restoreFragmentPosition, 350);
