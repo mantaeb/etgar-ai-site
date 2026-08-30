@@ -4,7 +4,7 @@
 
 English page: https://ai.bonar1.com/
 Hebrew page: https://ai.bonar1.com/he/
-Builder: Etgar Bonar
+Builder: Etgar Bonar, https://etgar.bonar1.com/
 Contact: ai@bonar1.com
 
 ## What exists today
@@ -22,6 +22,7 @@ This is a working personal system running in one household, not an off-the-shelf
 
 ## Identity reference
 
-- Etgar Bonar: https://www.linkedin.com/in/etgar1/
+- Etgar Bonar, canonical profile: https://etgar.bonar1.com/
+- Etgar Bonar, LinkedIn: https://www.linkedin.com/in/etgar1/
 
 This file is a supplementary map. The linked HTML pages are the canonical sources.
