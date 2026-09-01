@@ -19,7 +19,7 @@ Contact: ai@bonar1.com
 
 ## Answered questions
 
-The FAQ page at https://ai.bonar1.com/faq/ answers, in the system owner's own words and with dated figures: what the system is, whether models run locally (they do not), what hardware it uses, which AI providers it calls, what it costs to run, where the data lives, how memory is approved by a human, how a non-deterministic system is tested, what happens during a provider outage, what it does day to day, how it is secured, why the page withholds addresses and version numbers, whether it is a purchasable product (it is not yet), and who built it.
+The FAQ page at https://ai.bonar1.com/faq/ answers, in the system owner's own words and with dated figures: what the system is, whether models run locally (they do not), what hardware it uses, which AI providers it calls, where the data lives, how memory is approved by a human, how a non-deterministic system is tested, what happens when credits run out or a provider has an outage, what it does day to day, how it is secured, whether it is a purchasable product (it is not yet), and who built it.
 
 ## Disclosure policy
 
