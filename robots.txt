@@ -1,7 +1,23 @@
+# ai.bonar1.com
+# Discovery and answer-engine crawlers are allowed by design: this site exists
+# to be found and quoted accurately. Training-crawler policy is a separate
+# decision, currently inherited from the wildcard rule below.
+
 User-agent: *
 Allow: /
 
+# Answer-engine and search crawlers, named explicitly so the intent survives
+# any future tightening of the wildcard rule above.
 User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://ai.bonar1.com/sitemap.xml

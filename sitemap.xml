@@ -5,7 +5,7 @@
 >
   <url>
     <loc>https://ai.bonar1.com/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://ai.bonar1.com/" />
     <xhtml:link rel="alternate" hreflang="he" href="https://ai.bonar1.com/he/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.bonar1.com/" />
@@ -16,5 +16,11 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://ai.bonar1.com/" />
     <xhtml:link rel="alternate" hreflang="he" href="https://ai.bonar1.com/he/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.bonar1.com/" />
+  </url>
+  <url>
+    <loc>https://ai.bonar1.com/faq/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ai.bonar1.com/faq/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.bonar1.com/faq/" />
   </url>
 </urlset>

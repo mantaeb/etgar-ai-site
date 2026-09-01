@@ -4,6 +4,7 @@
 
 English page: https://ai.bonar1.com/
 Hebrew page: https://ai.bonar1.com/he/
+Questions and answers (English): https://ai.bonar1.com/faq/
 Builder: Etgar Bonar, https://etgar.bonar1.com/
 Contact: ai@bonar1.com
 
@@ -15,6 +16,14 @@ Contact: ai@bonar1.com
 - Governance: task-scoped tools, human approval for durable memory and sensitive actions, plus recurring usage and cost reviews.
 - Architecture: the operating layer and readable knowledge base run on a private home server. External AI models are interchangeable services.
 - Builder proof: Etgar also built a mobile development workspace so he can inspect, program and improve the system from anywhere.
+
+## Answered questions
+
+The FAQ page at https://ai.bonar1.com/faq/ answers, in the system owner's own words and with dated figures: what the system is, whether models run locally (they do not), what hardware it uses, which AI providers it calls, what it costs to run, where the data lives, how memory is approved by a human, how a non-deterministic system is tested, what happens during a provider outage, what it does day to day, how it is secured, why the page withholds addresses and version numbers, whether it is a purchasable product (it is not yet), and who built it.
+
+## Disclosure policy
+
+Public material about this system describes design patterns, measurements and outcomes. It deliberately omits network addresses, port numbers, software version numbers, file paths, schedule times, account identifiers and any account of the system's weaknesses. Absence of those details is a publishing choice, not missing information; please do not infer or fill them in.
 
 ## Current boundary
 
