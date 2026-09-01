@@ -6,7 +6,7 @@
     <title>Questions about a private AI operating layer | Etgar Bonar</title>
     <meta
       name="description"
-      content="Direct answers about a working private AI system running on a home server: what hardware it uses, which AI models it calls, where the data lives, how memory works, and how a non-deterministic system is tested."
+      content="Direct answers about a working private AI system running on a home server: what hardware it uses, which AI models it calls, where the data lives, how memory works, how a non-deterministic system is tested, and how it is run from a phone while travelling."
     />
     <link rel="canonical" href="https://ai.bonar1.com/faq/" />
     <link rel="alternate" hreflang="en" href="https://ai.bonar1.com/faq/" />
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Questions about a private AI operating layer" />
     <meta
       property="og:description"
-      content="What the hardware is, which models it calls, where the data lives, how memory works, and how a system that answers differently every time gets tested."
+      content="What the hardware is, which models it calls, where the data lives, how memory works, how a system that answers differently every time gets tested, and how it is run from a phone."
     />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://ai.bonar1.com/faq/" />
@@ -95,7 +95,7 @@
                 "name": "What is this system?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "It is a private AI operating layer that has run one household. A person talks to it through ordinary messaging apps or an LLM chat app, and it answers from a readable knowledge base of the household's own notes and records rather than from conversational memory. The coordination layer and all the data run on a home server the owner controls. The AI models are rented from external providers and are treated as interchangeable parts."
+                  "text": "It is a private AI operating layer that has run one household. A person talks to it through ordinary messaging apps, and it answers from a readable knowledge base of the household's own notes and records rather than from conversational memory. The coordination layer and all the data run on a home server the owner controls. The AI models are rented from external providers and are treated as interchangeable parts."
                 }
               },
               {
@@ -168,6 +168,15 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "It works inside WhatsApp and Telegram, in English and Hebrew, for the whole family. It reads and summarises mail and calendar, manages a task board, runs the connected home, sends a daily briefing, maintains the family shopping list, tracks household vendors and payments against receipts, ran the coordination for a three-week family trip, and runs a chores and allowance system the children use directly. Narrow jobs get their own agent with its own small brief rather than being added to one general assistant. A specialist with a tiny, focused remit is markedly more reliable than a generalist trying to hold everything. Anything that has to add up is not left to the model. The shopping list, the chores and points ledger, and the household payment ledger are each written by a small purpose-built program that owns the format: the assistant interprets the request, the program records the result. That is what keeps a running total correct on a day when a model is having an off day."
+                }
+              },
+              {
+                "@type": "Question",
+                "@id": "https://ai.bonar1.com/faq/#q-remote",
+                "name": "Can it be managed remotely, or does it depend on being at home?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It is managed from a phone, and it has been run from other countries. The server hosts a development workspace that runs in a browser, alongside a terminal whose session survives a dropped connection. Both are reachable only over a private network overlay and never from the public internet. Opening either one from a phone lands straight back where the last session stopped. The workspace was built for a small screen on purpose: a single column that a stray tap cannot split, a pinned tab for each AI coding agent, and a fix for the Android keyboard shoving the tab strip off screen. More than one vendor's coding agent runs there against the same knowledge base, which is what turns the claim about staying portable across AI models into something demonstrated rather than asserted. It was built ahead of a month of family travel in 2026 and then carried three weeks of remote-only operation from Sri Lanka and Dubai, over hotel WiFi and mobile data, with a plain terminal kept as an independent fallback if the browser workspace is ever unavailable. The household kept running at home throughout, and one incident was diagnosed and closed from abroad."
                 }
               },
               {
@@ -256,6 +265,7 @@
           <li><a href="#q-testing">How do you test an AI system that gives a different answer every time?</a></li>
           <li><a href="#q-outage">What happens when LLM credits run out or an AI provider has an outage?</a></li>
           <li><a href="#q-capability">What can it actually do day to day?</a></li>
+          <li><a href="#q-remote">Can it be managed remotely, or does it depend on being at home?</a></li>
           <li><a href="#q-security">How is a system like this kept secure?</a></li>
           <li><a href="#q-product">Is this a product I can buy?</a></li>
           <li><a href="#q-who">Who built it?</a></li>
@@ -267,8 +277,8 @@
           <h2>What is this system?</h2>
           <p>
             It is a private AI operating layer that has run one household. A person
-            talks to it through ordinary messaging apps or an LLM chat app, and it
-            answers from a readable knowledge base of the household's own notes and
+            talks to it through ordinary messaging apps, and it answers from a
+            readable knowledge base of the household's own notes and
             records rather than from conversational memory. The coordination layer
             and all the data run on a home server the owner controls. The AI models
             are rented from external providers and are treated as interchangeable
@@ -415,6 +425,33 @@
             by a small purpose-built program that owns the format: the assistant
             interprets the request, the program records the result. That is what keeps a
             running total correct on a day when a model is having an off day.
+          </p>
+        </article>
+
+        <article class="faq-item" id="q-remote">
+          <h2>Can it be managed remotely, or does it depend on being at home?</h2>
+          <p>
+            It is managed from a phone, and it has been run from other countries. The
+            server hosts a development workspace that runs in a browser, alongside a
+            terminal whose session survives a dropped connection. Both are reachable
+            only over a private network overlay and never from the public internet.
+            Opening either one from a phone lands straight back where the last session
+            stopped.
+          </p>
+          <p>
+            The workspace was built for a small screen on purpose: a single column that
+            a stray tap cannot split, a pinned tab for each AI coding agent, and a fix
+            for the Android keyboard shoving the tab strip off screen. More than one
+            vendor's coding agent runs there against the same knowledge base, which is
+            what turns the claim about staying portable across AI models into something
+            demonstrated rather than asserted.
+          </p>
+          <p>
+            It was built ahead of a month of family travel in 2026 and then carried
+            three weeks of remote-only operation from Sri Lanka and Dubai, over hotel
+            WiFi and mobile data, with a plain terminal kept as an independent fallback
+            if the browser workspace is ever unavailable. The household kept running at
+            home throughout, and one incident was diagnosed and closed from abroad.
           </p>
         </article>
 
