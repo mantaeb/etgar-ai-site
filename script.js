@@ -193,6 +193,8 @@ function initThreads() {
       node.style.display = "block";
       node.classList.add("is-shown");
     });
+    const step = thread.querySelector("[data-step]");
+    if (step) step.textContent = "";
     follow(thread);
   }
 
@@ -206,10 +208,17 @@ function initThreads() {
 
     reset(thread);
 
+    const caption = thread.querySelector("[data-caption]");
+    const step = thread.querySelector("[data-step]");
+    const total = thread.querySelectorAll(".thread-msg").length;
+    let seen = 0;
+
     let delay = 380;
 
     parts(thread).forEach((node) => {
       const isTyping = node.classList.contains("thread-typing");
+      if (!isTyping) seen += 1;
+      const index = seen;
 
       window.setTimeout(() => {
         if (isTyping) {
@@ -219,6 +228,8 @@ function initThreads() {
           void node.offsetHeight;
           node.classList.add("is-shown");
         }
+        if (caption && node.dataset.title) caption.textContent = node.dataset.title;
+        if (step && !isTyping) step.textContent = `${index} of ${total}`;
         follow(thread);
       }, delay);
 

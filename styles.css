@@ -1514,3 +1514,43 @@ html[dir="rtl"] .hero-actions {
     display: none;
   }
 }
+
+/* Wide single scene, used for the knowledge graph. */
+.scene-wide .scene-frame {
+  border-radius: 18px;
+}
+
+.scene-wide figcaption {
+  max-width: 780px;
+}
+
+/* Narration line that changes as a thread plays. */
+.thread-narration {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 46px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.42;
+}
+
+.thread-step {
+  flex: none;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.thread-step:empty {
+  display: none;
+}
+
+.thread-actions {
+  margin-top: 10px;
+}

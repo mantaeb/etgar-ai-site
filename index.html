@@ -273,6 +273,28 @@
         </p>
 
         <div class="running-block reveal-on-scroll">
+          <h3>It remembers from sources, and the sources are connected.</h3>
+          <p>
+            Facts come from real notes, records and logs rather than from
+            conversational memory. Each answer stays traceable to the file it came
+            from, and the files reference one another.
+          </p>
+          <figure class="scene scene-wide">
+            <div class="scene-frame">
+              <img src="/assets/proof-knowledge-graph.webp" width="1500" height="1172" loading="lazy" decoding="async"
+                alt="A graph of several thousand notes drawn as dots joined by lines, forming dense clusters around the most heavily referenced subjects." />
+            </div>
+            <figcaption>
+              <b>The knowledge base behind the answers.</b>
+              Every dot is a note in the private second brain the assistant reads
+              from, and every line is a reference one note makes to another. The
+              dense regions are the subjects it gets asked about most. Nothing here
+              needed redacting, because at this scale no title is legible.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="running-block reveal-on-scroll">
           <h3>It works inside the conversations that already exist.</h3>
           <p>
             There is no app to open. Someone mentions the assistant in an ordinary
@@ -287,35 +309,41 @@
                 <div class="phone-bar">Family chores</div>
                 <div class="thread-viewport">
                   <div class="thread-track">
-                    <div class="thread-msg" data-hold="1700">
-                      <img src="/assets/msg-chores-1.webp" width="724" height="330" loading="lazy" decoding="async"
-                        alt="The assistant confirms ten points for a child who made her own food and cleaned up afterwards, and gives her total for the week." />
+                    <div class="thread-msg" data-hold="900" data-title="A child asks for two chores to be added">
+                      <img src="/assets/msg-chores-1.webp" width="724" height="168" loading="lazy" decoding="async"
+                        alt="A child messages the family group asking for two chores to be added to her tally." />
                     </div>
-                    <div class="thread-msg" data-hold="2100">
-                      <img src="/assets/msg-chores-2.webp" width="724" height="500" loading="lazy" decoding="async"
-                        alt="An end-of-day summary listing each child's logged tasks, points for the day and points for the week." />
+                    <div class="thread-typing" aria-hidden="true" data-title="Checking the request against the price list"><span></span><span></span><span></span></div>
+                    <div class="thread-msg" data-hold="2400" data-title="It cannot find that task, so it asks a parent instead of guessing">
+                      <img src="/assets/msg-chores-2.webp" width="724" height="302" loading="lazy" decoding="async"
+                        alt="The assistant quotes her message and replies that it cannot find that task, asking a parent whether it is a different registered chore or something new." />
                     </div>
-                    <div class="thread-msg" data-hold="900">
-                      <img src="/assets/msg-chores-3.webp" width="724" height="200" loading="lazy" decoding="async"
-                        alt="A child messages the group listing two chores she has done: walking the dog and clearing up after it." />
+                    <div class="thread-msg" data-hold="900" data-title="The request is corrected">
+                      <img src="/assets/msg-chores-3.webp" width="724" height="92" loading="lazy" decoding="async"
+                        alt="The child restates the request, wording the two chores differently." />
                     </div>
-                    <div class="thread-typing" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <div class="thread-msg">
-                      <img src="/assets/msg-chores-4.webp" width="724" height="454" loading="lazy" decoding="async"
-                        alt="The assistant quotes her message and awards fifteen points for the walk and five for clearing up, each with a running weekly total." />
+                    <div class="thread-typing" aria-hidden="true" data-title="Matching both chores to their point values"><span></span><span></span><span></span></div>
+                    <div class="thread-msg" data-title="Both chores awarded, weekly total updated">
+                      <img src="/assets/msg-chores-4.webp" width="724" height="420" loading="lazy" decoding="async"
+                        alt="The assistant quotes the corrected request and awards fifteen points for each chore, showing the running weekly total after each." />
                     </div>
                   </div>
                 </div>
               </div>
+              <p class="thread-narration">
+                <span class="thread-step" data-step></span>
+                <span data-caption>A child asks for two chores to be added</span>
+              </p>
               <div class="thread-actions">
                 <button class="thread-replay" type="button">Replay the exchange</button>
               </div>
               <figcaption>
-                <b>Pocket money, settled without an argument.</b>
-                The children report their own chores in the family group. The
-                assistant confirms each one against a fixed price list, awards the
-                points and keeps a running weekly total, so allowance is decided by
-                a ledger rather than by memory on a Friday. Names are redacted.
+                <b>Pocket money, and an assistant that refuses to guess.</b>
+                The children report their own chores in the family group. Here a
+                request matches nothing on the price list, so rather than inventing a
+                value the assistant stops and asks a parent. Once the wording is
+                corrected it awards both chores and updates the weekly total. Names
+                are redacted.
               </figcaption>
             </figure>
 
@@ -324,18 +352,22 @@
                 <div class="phone-bar">Shared trip costs</div>
                 <div class="thread-viewport">
                   <div class="thread-track">
-                    <div class="thread-msg" data-hold="900">
+                    <div class="thread-msg" data-hold="900" data-title="A shared purchase is reported in the group">
                       <img src="/assets/msg-ledger-1.webp" width="730" height="180" loading="lazy" decoding="async"
                         alt="A family member reports in the group that someone bought breakfast groceries for 150 dirhams." />
                     </div>
-                    <div class="thread-typing" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <div class="thread-msg">
+                    <div class="thread-typing" aria-hidden="true" data-title="Looking up the category and today's exchange rates"><span></span><span></span><span></span></div>
+                    <div class="thread-msg" data-title="The row is written and the totals returned">
                       <img src="/assets/msg-ledger-2.webp" width="730" height="415" loading="lazy" decoding="async"
                         alt="The assistant quotes the message and confirms a new ledger row carrying a date, payer, amount, category and an unresolved field marked TBD, followed by a running total in three currencies." />
                     </div>
                   </div>
                 </div>
               </div>
+              <p class="thread-narration">
+                <span class="thread-step" data-step></span>
+                <span data-caption>A shared purchase is reported in the group</span>
+              </p>
               <div class="thread-actions">
                 <button class="thread-replay" type="button">Replay the exchange</button>
               </div>
