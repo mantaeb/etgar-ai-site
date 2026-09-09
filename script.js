@@ -97,3 +97,56 @@ initReveals();
 initCursorEffects();
 restoreFragmentPosition();
 window.setTimeout(restoreFragmentPosition, 350);
+
+function initScenes() {
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  const scenes = document.querySelectorAll(".scene-scan, .scene-redacted");
+  if (!scenes.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("in-view");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.35 },
+  );
+
+  scenes.forEach((scene) => observer.observe(scene));
+}
+
+function initSceneScroll() {
+  if (reduceMotion) return;
+
+  const frames = Array.from(document.querySelectorAll(".scene-tall .scene-frame"));
+  if (!frames.length) return;
+
+  function updateSceneScroll() {
+    frames.forEach((frame) => {
+      const image = frame.querySelector("img");
+      if (!image) return;
+
+      const travel = image.offsetHeight - frame.offsetHeight;
+      if (travel <= 0) {
+        frame.style.setProperty("--scene-shift", "0px");
+        return;
+      }
+
+      const rect = frame.getBoundingClientRect();
+      const span = window.innerHeight + rect.height;
+      const progress = clamp((window.innerHeight - rect.top) / span, 0, 1);
+      frame.style.setProperty("--scene-shift", `${(-travel * progress).toFixed(1)}px`);
+    });
+  }
+
+  window.addEventListener("scroll", updateSceneScroll, { passive: true });
+  window.addEventListener("resize", updateSceneScroll);
+  window.addEventListener("load", updateSceneScroll);
+  updateSceneScroll();
+}
+
+initScenes();
+initSceneScroll();

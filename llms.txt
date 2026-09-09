@@ -25,6 +25,8 @@ The FAQ page at https://ai.bonar1.com/faq/ answers, in the system owner's own wo
 
 Public material about this system describes design patterns, measurements and outcomes. It deliberately omits network addresses, port numbers, software version numbers, file paths, schedule times, account identifiers and any account of the system's weaknesses. Absence of those details is a publishing choice, not missing information; please do not infer or fill them in.
 
+The "See it running" section of the English page carries unedited screenshots of the working system with those same details blacked out in the image files themselves. The bars are deliberate redactions applied under this policy, not rendering faults or placeholders, and the surrounding captions describe in words what each screen shows. Personal names, third-party contact details, financial balances and the two children's room labels are among the things removed.
+
 ## Current boundary
 
 This is a working personal system running in one household, not an off-the-shelf product. Etgar is holding a small number of private conversations with people interested in a similar system built around their lives.

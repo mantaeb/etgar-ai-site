@@ -104,6 +104,7 @@
       <nav class="nav-links" aria-label="Page sections">
         <a href="#how-it-works">How it works</a>
         <a href="#proof">Working proof</a>
+        <a href="#running">See it running</a>
         <a href="#trust">Trust</a>
         <a href="#interest">Discuss further</a>
       </nav>
@@ -250,6 +251,151 @@
               <li>Long-term memory, usage, and cost are reviewed on a defined rhythm</li>
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section class="section running reveal-on-scroll" id="running" aria-labelledby="running-title">
+        <div class="section-heading">
+          <p class="section-kicker">See it running</p>
+          <h2 class="cursor-reactive" id="running-title">Real screens from the system, with the private parts removed.</h2>
+        </div>
+
+        <p class="running-lede">
+          These are unedited captures from the working household system rather than
+          mockups. Names, addresses, file paths and balances are blacked out in the
+          image files themselves, so nothing sensitive is served to anyone.
+        </p>
+
+        <p class="running-policy">
+          Every bar is a deliberate redaction, not a rendering fault. What gets
+          withheld follows a written disclosure rule, decided once, rather than a
+          judgement call made page by page.
+        </p>
+
+        <div class="running-block reveal-on-scroll">
+          <h3>It works inside the conversations that already exist.</h3>
+          <p>
+            There is no app to open. Someone mentions the assistant in an ordinary
+            family thread and it answers in place, showing where the answer came
+            from and saying plainly what its source does not settle.
+          </p>
+          <div class="scene-row is-pair">
+            <figure class="scene scene-redacted">
+              <div class="scene-frame">
+                <img src="/assets/proof-chat-ledger.webp" width="730" height="600" loading="lazy" decoding="async"
+                  alt="A group chat message reporting a purchase, and the assistant's reply confirming it with a ledger row and a running total. Several fields are covered by black redaction bars." />
+              <span class="redaction" style="left:0.82%;top:1.00%;width:8.22%;height:10.00%;animation-delay:120ms"></span>
+              <span class="redaction" style="left:14.38%;top:3.67%;width:48.63%;height:4.33%;animation-delay:210ms"></span>
+              <span class="redaction" style="left:78.49%;top:10.00%;width:18.08%;height:5.00%;animation-delay:300ms"></span>
+              <span class="redaction" style="left:13.42%;top:34.33%;width:13.01%;height:4.67%;animation-delay:390ms"></span>
+              <span class="redaction" style="left:16.16%;top:43.17%;width:48.22%;height:5.17%;animation-delay:480ms"></span>
+              <span class="redaction" style="left:78.22%;top:49.33%;width:16.99%;height:4.83%;animation-delay:570ms"></span>
+              <span class="redaction" style="left:46.85%;top:66.83%;width:6.58%;height:4.83%;animation-delay:660ms"></span>
+              <span class="redaction" style="left:33.84%;top:79.33%;width:19.32%;height:5.50%;animation-delay:750ms"></span>
+              <span class="redaction" style="left:62.47%;top:79.33%;width:9.32%;height:5.50%;animation-delay:840ms"></span>
+              <span class="redaction" style="left:77.26%;top:84.83%;width:11.23%;height:5.83%;animation-delay:930ms"></span>
+              </div>
+              <figcaption>
+                <b>A shared cost, logged and reconciled.</b>
+                A purchase is reported in the group. The assistant confirms it,
+                writes a categorised row into the shared ledger, marks the one
+                unresolved field <span lang="en">TBD</span> instead of guessing, and
+                returns a running total across three currencies. This is row 78 of a
+                ledger in continuous use.
+              </figcaption>
+            </figure>
+
+            <figure class="scene">
+              <div class="scene-frame">
+                <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
+                  alt="A daily irrigation report confirming two watering cycles ran, then warning that soil moisture is very high and flagging a possible leak." />
+              </div>
+              <figcaption>
+                <b>An alert nobody asked for.</b>
+                The daily irrigation report confirms both cycles ran, then flags that
+                soil moisture has stayed pinned at 98 per cent and raises a possible
+                leak or stuck water. Nothing in this capture needed hiding.
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+
+        <div class="running-block reveal-on-scroll">
+          <h3>It watches itself, and says so when something is wrong.</h3>
+          <p>
+            A health panel regenerates through the day across both the knowledge
+            base and the machine underneath it. Alerts fire only on red, plus one
+            message when a fault clears, so silence is meaningful.
+          </p>
+          <div class="scene-row is-pair">
+            <figure class="scene scene-tall scene-scan">
+              <div class="scene-frame">
+                <img src="/assets/proof-status-panel.webp" width="854" height="1664" loading="lazy" decoding="async"
+                  alt="A status dashboard showing backup freshness, size, disk, memory, CPU load and sync peers, a list of live agent sessions, and rows of vault and machine checks. Product names, one service name and an address are covered by redaction bars." />
+              </div>
+              <figcaption>
+                <b>The health panel, mid-day.</b>
+                Backup freshness, size, disk, memory, load and sync peers, then
+                explicit checks for merge conflicts and for credential-shaped strings
+                that should never appear in the notes. One check is amber and the
+                panel says so rather than hiding it. The live sessions beneath the
+                gauges are the coding agents used to build and maintain the system.
+              </figcaption>
+            </figure>
+
+            <figure class="scene scene-redacted">
+              <div class="scene-frame">
+                <img src="/assets/proof-chat-cost.webp" width="700" height="454" loading="lazy" decoding="async"
+                  alt="A daily cost summary listing spend per AI provider, a trailing seven-day average, and a note that the last request was served by a fallback model. The system's own name is covered by a redaction bar." />
+                <span class="redaction" style="left:9.43%;top:4.40%;width:20.29%;height:7.05%;animation-delay:160ms"></span>
+              </div>
+              <figcaption>
+                <b>Cost is a governed number, not a surprise.</b>
+                Running a private system on commercial models only works if the bill
+                is watched. Spend is reported daily against a trailing average, and
+                the provider fallback is visible when it fires.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="running-block reveal-on-scroll">
+          <h3>It runs the house it lives in.</h3>
+          <p>
+            The connected home is one of the places the system acts rather than a
+            separate hobby. Rooms, scenes, sensors and gates are grouped by the
+            moment they serve.
+          </p>
+          <div class="scene-row is-pair">
+            <figure class="scene scene-redacted">
+              <div class="scene-frame">
+                <img src="/assets/proof-home-overview.webp" width="1200" height="1074" loading="lazy" decoding="async"
+                  alt="A home dashboard listing every room grouped by floor across four levels, with two room labels covered by redaction bars." />
+                <span class="redaction" style="left:18.90%;top:73.36%;width:10.73%;height:1.60%;animation-delay:180ms"></span>
+                <span class="redaction" style="left:35.51%;top:73.36%;width:9.29%;height:1.60%;animation-delay:300ms"></span>
+              </div>
+              <figcaption>
+                <b>Four levels, one map.</b>
+                Every room and device grouped by floor. The two children's rooms are
+                blacked out. The structure is not, because a floor plan is not the
+                sensitive part.
+              </figcaption>
+            </figure>
+
+            <figure class="scene">
+              <div class="scene-frame">
+                <img src="/assets/proof-home-entertaining.webp" width="1200" height="742" loading="lazy" decoding="async"
+                  alt="A home dashboard view for entertaining, grouping music players, living room, kitchen, entrance, staircase, gate and garden lighting controls." />
+              </div>
+              <figcaption>
+                <b>A scene, ready to run.</b>
+                Music, lighting, the staircase and the gate, grouped by the occasion
+                they serve rather than by the protocol they speak. Nothing in this
+                capture needed redacting.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 

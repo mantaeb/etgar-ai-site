@@ -1107,3 +1107,216 @@ html[dir="rtl"] .hero-actions {
     max-width: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   See it running: real captures, redacted under the disclosure policy
+   --------------------------------------------------------------- */
+
+.running {
+  border-top: 1px solid var(--line);
+}
+
+.running-lede {
+  max-width: 720px;
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: clamp(17px, 1.8vw, 20px);
+}
+
+.running-policy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: fit-content;
+  max-width: 700px;
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-strong);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.running-policy::before {
+  flex: none;
+  width: 30px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background: var(--ink);
+  content: "";
+}
+
+.running-block {
+  margin-bottom: clamp(52px, 6.5vw, 92px);
+}
+
+.running-block:last-of-type {
+  margin-bottom: 0;
+}
+
+.running-block h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.14;
+}
+
+.running-block > p {
+  max-width: 700px;
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 18px);
+}
+
+.scene-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.scene-row.is-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.scene {
+  margin: 0;
+}
+
+.scene-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(24, 33, 30, 0.24);
+  border-radius: 16px;
+  background: #0f1512;
+  box-shadow: var(--shadow);
+}
+
+.scene-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.scene figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.scene figcaption b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink);
+  font-weight: 750;
+}
+
+/* Tall panel: its own content scrolls through a fixed window on page scroll. */
+.scene-tall .scene-frame {
+  height: clamp(380px, 56vh, 620px);
+}
+
+.scene-tall .scene-frame img {
+  transform: translateY(var(--scene-shift, 0px));
+}
+
+.motion-enabled .scene-tall .scene-frame img {
+  will-change: transform;
+}
+
+/* A soft band steps down the checks, so the panel reads as auditing itself. */
+.scene-scan::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 96px;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(180deg, transparent, rgba(130, 211, 186, 0.26), transparent);
+}
+
+.motion-enabled .scene-scan.in-view::after {
+  animation: scene-scan 4600ms cubic-bezier(0.4, 0, 0.2, 1) 500ms 2;
+}
+
+@keyframes scene-scan {
+  0% {
+    opacity: 0;
+    transform: translateY(-96px);
+  }
+  10% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(640px);
+  }
+}
+
+/* Redaction sweep. These sit exactly on top of bars already burned into the
+   pixels, so there is no unredacted state anywhere in the shipped file. */
+.redaction {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  border-radius: 2px;
+  opacity: 0;
+  background: linear-gradient(100deg, transparent 18%, rgba(36, 77, 61, 0.55) 50%, transparent 82%);
+  background-size: 280% 100%;
+  background-position: 210% 0;
+}
+
+.motion-enabled .scene-redacted.in-view .redaction {
+  animation: redaction-sweep 1400ms ease-out forwards;
+}
+
+@keyframes redaction-sweep {
+  0% {
+    opacity: 0;
+    background-position: 210% 0;
+  }
+  22% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: -70% 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .scene-row,
+  .scene-row.is-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .scene-tall .scene-frame {
+    height: clamp(320px, 62vh, 460px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-tall .scene-frame img {
+    transform: none;
+  }
+
+  .scene-tall .scene-frame {
+    height: auto;
+  }
+
+  .scene-scan::after,
+  .redaction {
+    display: none;
+  }
+}
