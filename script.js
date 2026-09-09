@@ -150,3 +150,115 @@ function initSceneScroll() {
 
 initScenes();
 initSceneScroll();
+
+function initThreads() {
+  const threads = Array.from(document.querySelectorAll("[data-thread]"));
+  if (!threads.length) return;
+
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  // The viewport only gets its fixed height under .motion-enabled, and the
+  // player measures that height. Add it synchronously so the first follow()
+  // does not measure an unclipped track and conclude there is no overflow.
+  root.classList.add("motion-enabled");
+
+  function parts(thread) {
+    return Array.from(thread.querySelectorAll(".thread-msg, .thread-typing"));
+  }
+
+  function follow(thread) {
+    const track = thread.querySelector(".thread-track");
+    const viewport = thread.querySelector(".thread-viewport");
+    if (!track || !viewport) return;
+    const overflow = track.scrollHeight - viewport.clientHeight;
+    track.style.transform = `translateY(${-Math.max(0, overflow)}px)`;
+  }
+
+  function reset(thread) {
+    parts(thread).forEach((node) => {
+      node.classList.remove("is-shown");
+      if (node.classList.contains("thread-msg")) node.style.display = "none";
+    });
+    const track = thread.querySelector(".thread-track");
+    if (track) track.style.transform = "translateY(0)";
+  }
+
+  // Safety net: if the sequence never starts, the thread must not sit empty.
+  function revealAll(thread) {
+    parts(thread).forEach((node) => {
+      if (node.classList.contains("thread-typing")) {
+        node.classList.remove("is-shown");
+        return;
+      }
+      node.style.display = "block";
+      node.classList.add("is-shown");
+    });
+    follow(thread);
+  }
+
+  function play(thread) {
+    if (thread.dataset.playing === "1") return;
+    thread.dataset.playing = "1";
+    thread.dataset.started = "1";
+
+    const replay = thread.querySelector(".thread-replay");
+    if (replay) replay.hidden = true;
+
+    reset(thread);
+
+    let delay = 380;
+
+    parts(thread).forEach((node) => {
+      const isTyping = node.classList.contains("thread-typing");
+
+      window.setTimeout(() => {
+        if (isTyping) {
+          node.classList.add("is-shown");
+        } else {
+          node.style.display = "block";
+          void node.offsetHeight;
+          node.classList.add("is-shown");
+        }
+        follow(thread);
+      }, delay);
+
+      if (isTyping) {
+        delay += 1350;
+        window.setTimeout(() => node.classList.remove("is-shown"), delay - 60);
+      } else {
+        delay += node.dataset.hold ? Number(node.dataset.hold) : 1500;
+      }
+    });
+
+    window.setTimeout(() => {
+      thread.dataset.playing = "0";
+      if (replay) replay.hidden = false;
+    }, delay);
+  }
+
+  threads.forEach((thread) => {
+    reset(thread);
+
+    const replay = thread.querySelector(".thread-replay");
+    if (replay) replay.addEventListener("click", () => play(thread));
+
+    window.setTimeout(() => {
+      if (thread.dataset.started !== "1") revealAll(thread);
+    }, 5000);
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        play(entry.target);
+      });
+    },
+    { threshold: 0.25 },
+  );
+
+  threads.forEach((thread) => observer.observe(thread));
+}
+
+initThreads();

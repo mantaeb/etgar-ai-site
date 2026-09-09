@@ -277,33 +277,76 @@
           <p>
             There is no app to open. Someone mentions the assistant in an ordinary
             family thread and it answers in place, showing where the answer came
-            from and saying plainly what its source does not settle.
+            from and saying plainly what its source does not settle. Both threads
+            below replay a real exchange, message by message.
           </p>
-          <div class="scene-row is-pair">
-            <figure class="scene scene-redacted">
-              <div class="scene-frame">
-                <img src="/assets/proof-chat-ledger.webp" width="730" height="600" loading="lazy" decoding="async"
-                  alt="A group chat message reporting a purchase, and the assistant's reply confirming it with a ledger row and a running total. Several fields are covered by black redaction bars." />
-              <span class="redaction" style="left:0.82%;top:1.00%;width:8.22%;height:10.00%;animation-delay:120ms"></span>
-              <span class="redaction" style="left:14.38%;top:3.67%;width:48.63%;height:4.33%;animation-delay:210ms"></span>
-              <span class="redaction" style="left:78.49%;top:10.00%;width:18.08%;height:5.00%;animation-delay:300ms"></span>
-              <span class="redaction" style="left:13.42%;top:34.33%;width:13.01%;height:4.67%;animation-delay:390ms"></span>
-              <span class="redaction" style="left:16.16%;top:43.17%;width:48.22%;height:5.17%;animation-delay:480ms"></span>
-              <span class="redaction" style="left:78.22%;top:49.33%;width:16.99%;height:4.83%;animation-delay:570ms"></span>
-              <span class="redaction" style="left:46.85%;top:66.83%;width:6.58%;height:4.83%;animation-delay:660ms"></span>
-              <span class="redaction" style="left:33.84%;top:79.33%;width:19.32%;height:5.50%;animation-delay:750ms"></span>
-              <span class="redaction" style="left:62.47%;top:79.33%;width:9.32%;height:5.50%;animation-delay:840ms"></span>
-              <span class="redaction" style="left:77.26%;top:84.83%;width:11.23%;height:5.83%;animation-delay:930ms"></span>
+          <div class="thread-row">
+
+            <figure class="scene" data-thread>
+              <div class="phone">
+                <div class="phone-bar">Family chores</div>
+                <div class="thread-viewport">
+                  <div class="thread-track">
+                    <div class="thread-msg" data-hold="1700">
+                      <img src="/assets/msg-chores-1.webp" width="724" height="330" loading="lazy" decoding="async"
+                        alt="The assistant confirms ten points for a child who made her own food and cleaned up afterwards, and gives her total for the week." />
+                    </div>
+                    <div class="thread-msg" data-hold="2100">
+                      <img src="/assets/msg-chores-2.webp" width="724" height="500" loading="lazy" decoding="async"
+                        alt="An end-of-day summary listing each child's logged tasks, points for the day and points for the week." />
+                    </div>
+                    <div class="thread-msg" data-hold="900">
+                      <img src="/assets/msg-chores-3.webp" width="724" height="200" loading="lazy" decoding="async"
+                        alt="A child messages the group listing two chores she has done: walking the dog and clearing up after it." />
+                    </div>
+                    <div class="thread-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <div class="thread-msg">
+                      <img src="/assets/msg-chores-4.webp" width="724" height="454" loading="lazy" decoding="async"
+                        alt="The assistant quotes her message and awards fifteen points for the walk and five for clearing up, each with a running weekly total." />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <figcaption> <b>A shared cost, logged and reconciled.</b> A purchase is reported in the group. The assistant confirms it, writes a categorised row into the shared ledger, marks the one unresolved field <span lang="en">TBD</span> instead of guessing, and returns a running total across three currencies. This is row 78 of a ledger in continuous use. </figcaption>
+              <div class="thread-actions">
+                <button class="thread-replay" type="button">Replay the exchange</button>
+              </div>
+              <figcaption>
+                <b>Pocket money, settled without an argument.</b>
+                The children report their own chores in the family group. The
+                assistant confirms each one against a fixed price list, awards the
+                points and keeps a running weekly total, so allowance is decided by
+                a ledger rather than by memory on a Friday. Names are redacted.
+              </figcaption>
             </figure>
 
-            <figure class="scene">
-              <div class="scene-frame">
-                <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
-                  alt="A daily irrigation report confirming two watering cycles ran, then warning that soil moisture is very high and flagging a possible leak." />
+            <figure class="scene" data-thread>
+              <div class="phone">
+                <div class="phone-bar">Shared trip costs</div>
+                <div class="thread-viewport">
+                  <div class="thread-track">
+                    <div class="thread-msg" data-hold="900">
+                      <img src="/assets/msg-ledger-1.webp" width="730" height="180" loading="lazy" decoding="async"
+                        alt="A family member reports in the group that someone bought breakfast groceries for 150 dirhams." />
+                    </div>
+                    <div class="thread-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <div class="thread-msg">
+                      <img src="/assets/msg-ledger-2.webp" width="730" height="415" loading="lazy" decoding="async"
+                        alt="The assistant quotes the message and confirms a new ledger row carrying a date, payer, amount, category and an unresolved field marked TBD, followed by a running total in three currencies." />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <figcaption> <b>An alert nobody asked for.</b> The daily irrigation report confirms both cycles ran, then flags that soil moisture has stayed pinned at 98 per cent and raises a possible leak or stuck water. Nothing in this capture needed hiding. </figcaption>
+              <div class="thread-actions">
+                <button class="thread-replay" type="button">Replay the exchange</button>
+              </div>
+              <figcaption>
+                <b>A shared cost, logged and reconciled.</b>
+                A purchase is reported in the group. The assistant writes a
+                categorised row into the shared ledger, marks the one unresolved
+                field <span lang="en">TBD</span> instead of guessing, and returns a
+                running total across three currencies. This is row 78 of a ledger in
+                continuous use. Names and balances are redacted.
+              </figcaption>
             </figure>
 
           </div>
@@ -319,11 +362,35 @@
           <div class="scene-row is-pair">
             <figure class="scene scene-tall scene-scan">
               <div class="scene-frame">
-                <img src="/assets/proof-status-panel.webp" width="854" height="1664" loading="lazy" decoding="async"
-                  alt="A status dashboard showing backup freshness, size, disk, memory, CPU load and sync peers, a list of live agent sessions, and rows of vault and machine checks. Product names, one service name and an address are covered by redaction bars." />
+                <img src="/assets/proof-status-panel.webp" width="1200" height="2320" loading="lazy" decoding="async"
+                  alt="A status dashboard showing AI plan consumption for two coding assistants, gauges for backup freshness, size, disk, memory, CPU load and sync peers, a list of live agent sessions, and rows of vault and machine checks. Product names, one service name and an address are covered by redaction bars." />
               </div>
-              <figcaption> <b>The health panel, mid-day.</b> Backup freshness, size, disk, memory, load and sync peers, then explicit checks for merge conflicts and for credential-shaped strings that should never appear in the notes. One check is amber and the panel says so rather than hiding it. The live sessions beneath the gauges are the coding agents used to build and maintain the system. </figcaption>
+              <figcaption>
+                <b>The health panel, mid-day.</b>
+                It opens with what the assistants are costing in plan capacity, session
+                and week to date, because a private system running on commercial models
+                is only sustainable if that number is watched. Then backup freshness,
+                size, disk, memory, load and sync peers, and explicit checks for merge
+                conflicts and for credential-shaped strings that should never appear in
+                the notes. One check is amber and the panel says so rather than hiding
+                it. The live sessions are the coding agents used to build and maintain
+                the system.
+              </figcaption>
             </figure>
+
+            <div class="scene-stack">
+              <figure class="scene">
+                <div class="scene-frame">
+                  <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
+                    alt="A daily irrigation report confirming two watering cycles ran, then warning that soil moisture is very high and flagging a possible leak." />
+                </div>
+                <figcaption>
+                  <b>An alert nobody asked for.</b>
+                  The daily irrigation report confirms both cycles ran, then flags
+                  that soil moisture has stayed pinned at 98 per cent and raises a
+                  possible leak or stuck water. Nothing in this capture needed hiding.
+                </figcaption>
+              </figure>
 
             <figure class="scene scene-redacted">
               <div class="scene-frame">
@@ -333,6 +400,7 @@
               </div>
               <figcaption> <b>Cost is a governed number, not a surprise.</b> Running a private system on commercial models only works if the bill is watched. Spend is reported daily against a trailing average, and the provider fallback is visible when it fires. </figcaption>
             </figure>
+            </div>
           </div>
         </div>
 

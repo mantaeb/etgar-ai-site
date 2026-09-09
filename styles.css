@@ -1320,3 +1320,197 @@ html[dir="rtl"] .hero-actions {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------
+   Animated thread replay. Messages arrive in sequence with a typing
+   indicator, so a viewer watches the exchange happen rather than
+   reading a screenshot of it.
+   --------------------------------------------------------------- */
+
+.thread-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+
+.scene-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.phone {
+  overflow: hidden;
+  border: 9px solid #14100f;
+  border-radius: 30px;
+  background: #0d1a1f;
+  box-shadow: var(--shadow);
+}
+
+.phone-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: #101c22;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.phone-bar::before {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2f5d4a;
+  content: "";
+}
+
+.thread-viewport {
+  position: relative;
+  overflow: visible;
+  background: #0e2129;
+}
+
+.thread-track {
+  display: grid;
+  gap: 9px;
+  padding: 12px 10px 14px;
+}
+
+.thread-msg {
+  margin: 0;
+}
+
+.thread-msg img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.thread-typing {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  margin-inline-start: 10px;
+  padding: 11px 15px;
+  border-radius: 15px;
+  background: #1d2c33;
+}
+
+.thread-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.thread-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.thread-replay {
+  padding: 7px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-strong);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.thread-replay:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.thread-replay[hidden] {
+  display: none;
+}
+
+/* Player state, only once JavaScript and motion are both available. */
+.motion-enabled .thread-viewport {
+  height: clamp(340px, 46vh, 430px);
+  overflow: hidden;
+}
+
+.motion-enabled .thread-track {
+  transition: transform 640ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.motion-enabled .thread-msg {
+  display: none;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 400ms ease,
+    transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.motion-enabled .thread-msg.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-enabled .thread-typing.is-shown {
+  display: flex;
+}
+
+.motion-enabled .thread-typing.is-shown span {
+  animation: thread-typing 1000ms infinite;
+}
+
+.motion-enabled .thread-typing.is-shown span:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.motion-enabled .thread-typing.is-shown span:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+@keyframes thread-typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.32;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 860px) {
+  .thread-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thread-viewport {
+    height: auto;
+    overflow: visible;
+  }
+
+  .thread-msg {
+    display: block;
+    opacity: 1;
+    transform: none;
+  }
+
+  .thread-typing,
+  .thread-replay {
+    display: none;
+  }
+}
