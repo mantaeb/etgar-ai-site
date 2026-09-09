@@ -1554,3 +1554,49 @@ html[dir="rtl"] .hero-actions {
 .thread-actions {
   margin-top: 10px;
 }
+
+/* ---------------------------------------------------------------
+   Demo sections, distributed through the page next to the claim
+   each one supports.
+   --------------------------------------------------------------- */
+
+.demo h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.demo-lede {
+  max-width: 720px;
+  margin: 0 0 30px;
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 19px);
+}
+
+.demo .running-policy {
+  margin-top: -14px;
+  margin-bottom: 34px;
+}
+
+.demo-text {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.demo-text p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 18px);
+}
+
+@media (max-width: 860px) {
+  .demo-text {
+    padding-top: 0;
+  }
+}
