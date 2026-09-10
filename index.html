@@ -84,8 +84,8 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=19" />
-    <script src="/script.js?v=20" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=20" />
+    <script src="/script.js?v=21" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer
@@ -168,34 +168,71 @@
             once, rather than a judgement call made page by page.
           </p>
 
-        <div class="scene-row is-pair">
-              <figure class="scene">
-                <div class="scene-frame">
-                  <img src="/assets/proof-knowledge-graph.webp" width="620" height="690" loading="lazy" decoding="async"
-                    alt="A close view of the note graph centred on a note called pricing, with labelled links out to go-to-market-plan, saas-growth-metrics, porter-five-forces, blue-ocean-happy-line, 7ps-marketing and others." />
-                </div>
-                <figcaption>
-                  <b>One note, and what it is connected to.</b>
-                  A note on pricing links out to the frameworks it draws on and the
-                  plans that use it. When the assistant answers a pricing question this
-                  is the neighbourhood it reads, and the answer can be traced back to
-                  the file it came from.
-                </figcaption>
-              </figure>
+        <div class="graph-story" data-graph-story>
+          <div class="graph-player">
+            <div class="graph-stage">
+              <div class="graph-stage-bar">
+                <span><i aria-hidden="true"></i> Live knowledge map</span>
+                <span>Recorded from the working system</span>
+              </div>
+              <video
+                data-graph-video
+                muted
+                playsinline
+                preload="metadata"
+                poster="/assets/proof-knowledge-graph-demo-poster.webp"
+                aria-label="A live knowledge graph zooming from the whole collection into one selected page and its connections."
+              >
+                <source src="/assets/proof-knowledge-graph-demo.mp4" type="video/mp4" />
+              </video>
+              <span class="graph-recording"><i aria-hidden="true"></i> Real system recording</span>
+            </div>
+            <div class="story-controls">
+              <button class="story-replay" type="button" data-graph-replay>Replay the zoom</button>
+              <span data-graph-caption>The whole knowledge base</span>
+            </div>
+          </div>
 
-              <figure class="scene">
-                <div class="scene-frame">
-                  <img src="/assets/proof-knowledge-map.webp" width="1000" height="986" loading="lazy" decoding="async"
-                    alt="The whole note graph: several thousand notes drawn as dots joined by reference lines, forming dense clusters with sparser satellites around the edge." />
-                </div>
-                <figcaption>
-                  <b>The whole knowledge base.</b>
-                  Every dot is a note and every line a reference between two of them.
-                  The dense clusters are the subjects with the most connected material
-                  behind them; the loose edges are notes still waiting to be linked in.
-                </figcaption>
-              </figure>
+          <ol class="graph-steps" aria-label="What the graph animation demonstrates">
+            <li data-graph-step class="is-active">
+              <span>01</span>
+              <div>
+                <b>The whole knowledge base</b>
+                <p>Every dot is a note. Dense clusters are subjects with deep, connected material behind them.</p>
+              </div>
+            </li>
+            <li data-graph-step>
+              <span>02</span>
+              <div>
+                <b>Zoom into the relevant neighbourhood</b>
+                <p>Moving closer makes individual pages legible while keeping the relationships around them visible.</p>
+              </div>
+            </li>
+            <li data-graph-step>
+              <span>03</span>
+              <div>
+                <b>One page, with its connections intact</b>
+                <p>Selecting a page reveals the frameworks, plans and references around it, so an answer remains traceable.</p>
+              </div>
+            </li>
+          </ol>
         </div>
+
+        <details class="evidence-drawer">
+          <summary>View the original still captures</summary>
+          <div class="evidence-grid is-pair">
+            <figure>
+              <img src="/assets/proof-knowledge-graph.webp" width="620" height="690" loading="lazy" decoding="async"
+                alt="A close view of the note graph centred on a pricing note and its connected frameworks." />
+              <figcaption>One note and the sources connected to it.</figcaption>
+            </figure>
+            <figure>
+              <img src="/assets/proof-knowledge-map.webp" width="1000" height="986" loading="lazy" decoding="async"
+                alt="The whole note graph, with several thousand notes joined by reference lines." />
+              <figcaption>The full knowledge map.</figcaption>
+            </figure>
+          </div>
+        </details>
       </section>
 
       <section class="section reveal-on-scroll" id="how-it-works" aria-labelledby="works-title">
@@ -266,17 +303,50 @@
                   <figcaption> <b>A scene, ready to run.</b> Music, lighting, the staircase and the gate, grouped by the occasion they serve rather than by the protocol they speak. </figcaption>
                 </figure>
 
-                  <figure class="scene">
-                    <div class="scene-frame">
-                      <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
-                        alt="A daily irrigation report confirming two watering cycles ran, then warning that soil moisture is very high and flagging a possible leak." />
+                  <figure class="system-story compact-story" data-proof-story>
+                    <div class="system-window">
+                      <div class="system-window-bar">
+                        <span><i aria-hidden="true"></i> Garden monitor</span>
+                        <span>Automatic</span>
+                      </div>
+                      <div class="system-feed" aria-live="polite">
+                        <div class="system-event story-beat" data-sequence="1" data-hold="850" data-caption="The morning cycle completed">
+                          <span class="event-time">06:03</span>
+                          <div><b>Morning watering completed</b><small>Soil moisture increased by 2%</small></div>
+                          <span class="event-state is-good">Done</span>
+                        </div>
+                        <div class="system-event story-beat" data-sequence="2" data-hold="950" data-caption="The afternoon cycle completed too">
+                          <span class="event-time">13:03</span>
+                          <div><b>Afternoon watering completed</b><small>Soil moisture increased by 2%</small></div>
+                          <span class="event-state is-good">Done</span>
+                        </div>
+                        <div class="system-event story-beat" data-sequence="3" data-hold="1200" data-caption="The sensor remained unusually high">
+                          <span class="event-time">13:45</span>
+                          <div><b>Soil moisture: 98%</b><small>Still unchanged after both cycles</small></div>
+                          <span class="event-state">Watch</span>
+                        </div>
+                        <div class="system-alert story-beat" data-sequence="4" data-hold="1800" data-caption="A possible leak was raised without being asked">
+                          <span aria-hidden="true">!</span>
+                          <div><b>Possible leak or stuck water</b><small>The system raised this alert on its own.</small></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="story-controls">
+                      <button class="story-replay" type="button" data-story-replay>Replay the check</button>
+                      <span data-story-caption>The morning cycle completed</span>
                     </div>
                     <figcaption>
                       <b>An alert nobody asked for.</b>
-                      The daily irrigation report confirms both cycles ran, then flags
-                      that soil moisture has stayed pinned at 98 per cent and raises a
-                      possible leak or stuck water.
+                      It confirms the scheduled work, keeps watching the sensor, and
+                      raises the exception rather than making the family inspect a dashboard.
                     </figcaption>
+                    <details class="evidence-drawer is-inline">
+                      <summary>View the original redacted alert</summary>
+                      <div class="evidence-grid">
+                        <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
+                          alt="The original irrigation report confirming two watering cycles, then warning of a possible leak." />
+                      </div>
+                    </details>
                   </figure>
           </div>
         </div>
@@ -319,43 +389,118 @@
           about the destination, writes the briefings, and keeps watching the bookings
           after everything is planned.
         </p>
-        <div class="scene-row">
-            <figure class="scene">
-              <div class="scene-frame">
-                <img src="/assets/proof-trip-flight.webp" width="850" height="440" loading="lazy" decoding="async"
-                  alt="An assistant message comparing the currently scheduled departure and arrival times from two flight-tracking sources against the time recorded in the trip file, and noting a thirty-minute difference." />
+        <div class="trip-showcase" data-story-switcher>
+          <div class="story-tabs" role="tablist" aria-label="Trip demonstrations">
+            <button type="button" role="tab" aria-selected="true" aria-controls="trip-flight" id="trip-flight-tab" data-story-tab="trip-flight">Flight change</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="trip-question" id="trip-question-tab" data-story-tab="trip-question" tabindex="-1">A question</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="trip-brief" id="trip-brief-tab" data-story-tab="trip-brief" tabindex="-1">Tomorrow's brief</button>
+          </div>
+
+          <div class="trip-panel is-active" id="trip-flight" role="tabpanel" aria-labelledby="trip-flight-tab" data-story-panel>
+            <div class="story-canvas" data-proof-story>
+              <div class="native-chat">
+                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+                <div class="native-chat-feed">
+                  <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="1800" data-caption="The group was told what changed">
+                    <span class="speaker">Private AI</span>
+                    <p><b>Flight update:</b> departure has moved 30 minutes earlier. The arrival time and both terminals are unchanged.</p>
+                    <time>09:12</time>
+                  </div>
+                </div>
               </div>
-              <figcaption>
-                <b>It kept watching after the booking.</b>
-                Two flight-tracking sources are checked against the time written in the
-                trip file. The departure had moved thirty minutes earlier, so it said
-                so, and confirmed the terminals were unchanged.
-              </figcaption>
-            </figure>
-            <figure class="scene">
-              <div class="scene-frame">
-                <img src="/assets/proof-trip-question.webp" width="724" height="598" loading="lazy" decoding="async"
-                  alt="A member of the group asks how hard a rock climb is; the assistant answers with the height above the jungle, the number of steps, and a note that this is general information about the site rather than something from the trip files." />
+              <div class="decision-rail">
+                <p class="rail-label">What happened behind the message</p>
+                <div class="decision-card story-beat" data-sequence="1" data-hold="850" data-caption="The booking stayed under watch">
+                  <span>01</span><div><b>Background check</b><p>The booking stayed under watch after the planning was finished.</p></div>
+                </div>
+                <div class="decision-card story-beat" data-sequence="2" data-hold="1100" data-caption="Two live sources were compared with the trip file">
+                  <span>02</span><div><b>Sources compared</b><p>Two flight trackers were checked against the time stored in the trip file.</p></div>
+                </div>
+                <div class="outcome-card story-beat" data-sequence="4" data-hold="1600" data-caption="The change was recorded and explained">
+                  <small>Verified change</small><strong>15:00 → 14:30</strong><span>Terminals unchanged</span>
+                </div>
               </div>
-              <figcaption>
-                <b>A question in the middle of the thread.</b>
-                Someone asks how hard the climb is. The answer gives the height and the
-                step count, and marks itself as general knowledge about the site
-                rather than something taken from the trip files.
-              </figcaption>
-            </figure>
-            <figure class="scene">
-              <div class="scene-frame">
-                <img src="/assets/proof-trip-brief.webp" width="724" height="730" loading="lazy" decoding="async"
-                  alt="An assistant briefing for the next day listing the base location, a short transfer, the planned activities, and a packing list." />
+              <div class="story-controls is-wide">
+                <button class="story-replay" type="button" data-story-replay>Replay this story</button>
+                <span data-story-caption>The booking stayed under watch</span>
               </div>
-              <figcaption>
-                <b>Tomorrow, written up the night before.</b>
-                Where the group is based, the transfer, what the day involves and what to
-                bring, sent unprompted the evening before.
-              </figcaption>
-            </figure>
+            </div>
+          </div>
+
+          <div class="trip-panel" id="trip-question" role="tabpanel" aria-labelledby="trip-question-tab" data-story-panel hidden>
+            <div class="story-canvas" data-proof-story>
+              <div class="native-chat">
+                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+                <div class="native-chat-feed">
+                  <div class="chat-bubble person story-beat" data-sequence="1" data-hold="950" data-caption="A question arrived in the ordinary group">
+                    <span class="speaker">Family member</span>
+                    <p>How difficult is the climb, and how high is it?</p>
+                    <time>18:42</time>
+                  </div>
+                  <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="1900" data-caption="The answer separated general knowledge from trip records">
+                    <span class="speaker">Private AI</span>
+                    <p>It rises about 200 metres above the surrounding jungle. Expect roughly 1,200 steps, including steep sections.</p>
+                    <time>18:42</time>
+                  </div>
+                </div>
+              </div>
+              <div class="decision-rail">
+                <p class="rail-label">What happened behind the message</p>
+                <div class="decision-card story-beat" data-sequence="2" data-hold="1250" data-caption="The system checked which source could support the answer">
+                  <span>01</span><div><b>Source boundary</b><p>This was general destination knowledge, not something found in the family's trip files.</p></div>
+                </div>
+                <div class="outcome-card story-beat" data-sequence="4" data-hold="1500" data-caption="The source boundary stayed visible">
+                  <small>Answer provenance</small><strong>General knowledge</strong><span>Not claimed as a trip-file fact</span>
+                </div>
+              </div>
+              <div class="story-controls is-wide">
+                <button class="story-replay" type="button" data-story-replay>Replay this story</button>
+                <span data-story-caption>A question arrived in the ordinary group</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-panel" id="trip-brief" role="tabpanel" aria-labelledby="trip-brief-tab" data-story-panel hidden>
+            <div class="story-canvas" data-proof-story>
+              <div class="native-chat">
+                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+                <div class="native-chat-feed">
+                  <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="2100" data-caption="A useful briefing arrived before anyone asked">
+                    <span class="speaker">Private AI</span>
+                    <p><b>Tomorrow:</b> a short transfer, the climb and a garden visit. Bring water, a hat, sunscreen and sturdy shoes.</p>
+                    <time>21:00</time>
+                  </div>
+                </div>
+              </div>
+              <div class="decision-rail">
+                <p class="rail-label">What happened behind the message</p>
+                <div class="decision-card story-beat" data-sequence="1" data-hold="850" data-caption="Tomorrow's plan was read from the trip files">
+                  <span>01</span><div><b>Plan read</b><p>The next day's route, activities and practical details were gathered from the shared plan.</p></div>
+                </div>
+                <div class="decision-card story-beat" data-sequence="2" data-hold="1100" data-caption="The useful details were turned into one short message">
+                  <span>02</span><div><b>Brief prepared</b><p>Location, transfer, activities and what to bring were condensed for the group.</p></div>
+                </div>
+                <div class="outcome-card story-beat" data-sequence="4" data-hold="1600" data-caption="The group received it the evening before">
+                  <small>Delivered automatically</small><strong>Tomorrow, ready</strong><span>Sent the evening before</span>
+                </div>
+              </div>
+              <div class="story-controls is-wide">
+                <button class="story-replay" type="button" data-story-replay>Replay this story</button>
+                <span data-story-caption>Tomorrow's plan was read from the trip files</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <p class="reconstruction-note"><i aria-hidden="true"></i> Recreated from real exchanges. Names and personal details have been removed.</p>
+        <details class="evidence-drawer">
+          <summary>View the original redacted trip captures</summary>
+          <div class="evidence-grid">
+            <img src="/assets/proof-trip-flight.webp" width="850" height="440" loading="lazy" decoding="async" alt="The original redacted flight-change message." />
+            <img src="/assets/proof-trip-question.webp" width="724" height="598" loading="lazy" decoding="async" alt="The original redacted destination question and answer." />
+            <img src="/assets/proof-trip-brief.webp" width="724" height="730" loading="lazy" decoding="async" alt="The original redacted next-day trip briefing." />
+          </div>
+        </details>
       </section>
 
       <section class="section demo reveal-on-scroll" id="demo-allowance" aria-labelledby="demo-allowance-title">
@@ -365,62 +510,72 @@
           Chores, points and pocket money run in the family group. The price list is fixed
           in advance, so what a job is worth is not renegotiated at the end of the week.
         </p>
-        <div class="thread-row">
-              <figure class="scene" data-thread>
-                <div class="phone">
-                  <div class="phone-bar">Family chores</div>
-                  <div class="thread-viewport">
-                    <div class="thread-track">
-                      <div class="thread-msg" data-hold="900" data-title="A child asks for two chores to be added">
-                        <img src="/assets/msg-chores-1.webp" width="724" height="168" loading="lazy" decoding="async"
-                          alt="A child messages the family group asking for two chores to be added to her tally." />
-                      </div>
-                      <div class="thread-typing" aria-hidden="true" data-title="Checking the request against the price list"><span></span><span></span><span></span></div>
-                      <div class="thread-msg" data-hold="2400" data-title="It cannot find that task, so it asks a parent instead of guessing">
-                        <img src="/assets/msg-chores-2.webp" width="724" height="302" loading="lazy" decoding="async"
-                          alt="The assistant quotes her message and replies that it cannot find that task, asking a parent whether it is a different registered chore or something new." />
-                      </div>
-                      <div class="thread-msg" data-hold="900" data-title="The request is corrected">
-                        <img src="/assets/msg-chores-3.webp" width="724" height="92" loading="lazy" decoding="async"
-                          alt="The child restates the request, wording the two chores differently." />
-                      </div>
-                      <div class="thread-typing" aria-hidden="true" data-title="Matching both chores to their point values"><span></span><span></span><span></span></div>
-                      <div class="thread-msg" data-title="Both chores awarded, weekly total updated">
-                        <img src="/assets/msg-chores-4.webp" width="724" height="420" loading="lazy" decoding="async"
-                          alt="The assistant quotes the corrected request and awards fifteen points for each chore, showing the running weekly total after each." />
-                      </div>
-                    </div>
-                  </div>
+        <figure class="allowance-story" data-proof-story>
+          <div class="story-canvas">
+            <div class="native-chat">
+              <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family chores</span><span>Shared group</span></div>
+              <div class="native-chat-feed">
+                <div class="chat-bubble person story-beat" data-sequence="1" data-hold="950" data-caption="A child reports two completed chores">
+                  <span class="speaker">Child</span>
+                  <p>Please add these two chores to my tally.</p>
+                  <time>16:13</time>
                 </div>
-                <p class="thread-narration">
-                  <span class="thread-step" data-step></span>
-                  <span data-caption>A child asks for two chores to be added</span>
-                </p>
-                <div class="thread-actions">
-                  <button class="thread-replay" type="button">Replay the exchange</button>
+                <div class="chat-bubble assistant story-beat" data-sequence="4" data-hold="1900" data-caption="The assistant stops instead of inventing a value">
+                  <span class="speaker">Private AI</span>
+                  <p>I found one task, but I cannot match the other wording to the fixed list. Is it a different registered chore, or something new?</p>
+                  <time>16:13</time>
                 </div>
-                <figcaption>
-                  <b>Pocket money, and an assistant that refuses to guess.</b>
-                  The children report their own chores in the family group. Here a
-                  request matches nothing on the price list, so rather than inventing a
-                  value the assistant stops and asks a parent. Once the wording is
-                  corrected it awards both chores and updates the weekly total.
-                </figcaption>
-              </figure>
+                <div class="chat-bubble person story-beat" data-sequence="5" data-hold="850" data-caption="The request is corrected">
+                  <span class="speaker">Child</span>
+                  <p>I meant the registered version.</p>
+                  <time>16:14</time>
+                </div>
+                <div class="chat-bubble assistant story-beat" data-sequence="7" data-hold="1800" data-caption="Both chores are awarded and the weekly total is updated">
+                  <span class="speaker">Private AI</span>
+                  <p>Done. Both chores have been added, and the new weekly total is recorded.</p>
+                  <time>16:14</time>
+                </div>
+              </div>
+            </div>
 
-          <div class="demo-text">
-            <p>
-              The children report their own chores. The assistant confirms each one
-              against the price list, awards the points and keeps a running weekly
-              total.
-            </p>
-            <p>
-              In this exchange one request matches nothing on the list. Rather than
-              inventing a value it stops and asks a parent, and only awards the points
-              once the wording has been corrected.
-            </p>
+            <div class="decision-rail">
+              <p class="rail-label">What happened behind the conversation</p>
+              <div class="decision-card story-beat" data-sequence="2" data-hold="1050" data-caption="The wording is checked against the fixed chore list">
+                <span>01</span><div><b>Fixed list checked</b><p>Point values come from the family rulebook, not from the message.</p></div>
+              </div>
+              <div class="decision-card is-caution story-beat" data-sequence="3" data-hold="1050" data-caption="The assistant refuses to invent a value">
+                <span>02</span><div><b>No guessing</b><p>An unknown phrase stops the process until the family clarifies it.</p></div>
+              </div>
+              <div class="decision-card story-beat" data-sequence="6" data-hold="850" data-caption="Two exact matches are found">
+                <span>03</span><div><b>Exact match</b><p>Both registered chores resolve to their approved point values.</p></div>
+              </div>
+              <div class="outcome-card story-beat" data-sequence="8" data-hold="1600" data-caption="The result becomes part of the running ledger">
+                <small>Ledger updated</small><strong>+15 &nbsp; +15</strong><span>Weekly total recalculated</span>
+              </div>
+            </div>
+
+            <div class="story-controls is-wide">
+              <button class="story-replay" type="button" data-story-replay>Replay the exchange</button>
+              <span data-story-caption>A child reports two completed chores</span>
+            </div>
           </div>
-        </div>
+          <figcaption>
+            <b>Pocket money, and an assistant that refuses to guess.</b>
+            The important part is not the chat interface. It is the rule-following behind it:
+            verify the wording, ask when uncertain, then update the ledger deterministically.
+          </figcaption>
+        </figure>
+
+        <p class="reconstruction-note"><i aria-hidden="true"></i> Recreated from a real family exchange. Names and personal details have been removed.</p>
+        <details class="evidence-drawer">
+          <summary>View the original redacted exchange</summary>
+          <div class="evidence-strip">
+            <img src="/assets/msg-chores-1.webp" width="724" height="168" loading="lazy" decoding="async" alt="The original redacted request for two chores." />
+            <img src="/assets/msg-chores-2.webp" width="724" height="302" loading="lazy" decoding="async" alt="The original redacted reply asking for clarification." />
+            <img src="/assets/msg-chores-3.webp" width="724" height="92" loading="lazy" decoding="async" alt="The original redacted corrected request." />
+            <img src="/assets/msg-chores-4.webp" width="724" height="420" loading="lazy" decoding="async" alt="The original redacted point awards and weekly total." />
+          </div>
+        </details>
       </section>
 
       <section class="section proof reveal-on-scroll" id="proof" aria-labelledby="proof-title">
@@ -484,13 +639,38 @@
                 </figcaption>
               </figure>
 
-              <figure class="scene scene-redacted">
-                <div class="scene-frame">
-                  <img src="/assets/proof-chat-cost.webp" width="700" height="454" loading="lazy" decoding="async"
-                    alt="A daily cost summary listing spend per AI provider, a trailing seven-day average, and a note that the last request was served by a fallback model. The system's own name is covered by a redaction bar." />
-                  <span class="redaction" style="left:9.43%;top:4.40%;width:20.29%;height:7.05%;animation-delay:160ms"></span>
+              <figure class="cost-story" data-proof-story>
+                <div class="cost-window">
+                  <div class="system-window-bar">
+                    <span><i aria-hidden="true"></i> AI usage</span>
+                    <span>Daily report</span>
+                  </div>
+                  <div class="cost-body">
+                    <p class="cost-label">Estimated model cost today</p>
+                    <strong class="cost-total story-beat" data-sequence="3" data-hold="1100" data-caption="Today's total is calculated">$0.088</strong>
+                    <div class="cost-lines">
+                      <div class="cost-line story-beat" data-sequence="1" data-hold="750" data-caption="Usage is measured by provider"><span>Primary provider</span><b>$0.049</b></div>
+                      <div class="cost-line story-beat" data-sequence="2" data-hold="750" data-caption="Every provider is included"><span>Secondary provider</span><b>$0.038</b></div>
+                    </div>
+                    <div class="cost-average story-beat" data-sequence="4" data-hold="1000" data-caption="The total is compared with a trailing baseline">
+                      <span>Trailing 7-day average</span><b>$0.224 / day</b>
+                    </div>
+                    <div class="fallback-notice story-beat" data-sequence="5" data-hold="1600" data-caption="Provider fallback is reported, not hidden">
+                      <span aria-hidden="true">↳</span><p><b>Fallback visible</b> The last request used the backup model.</p>
+                    </div>
+                  </div>
                 </div>
-                <figcaption> <b>Cost is a governed number, not a surprise.</b> Running a private system on commercial models only works if the bill is watched. Spend is reported daily against a trailing average, and the provider fallback is visible when it fires. </figcaption>
+                <div class="story-controls">
+                  <button class="story-replay" type="button" data-story-replay>Replay the report</button>
+                  <span data-story-caption>Usage is measured by provider</span>
+                </div>
+                <figcaption> <b>Cost is a governed number, not a surprise.</b> Daily spend is measured against a trailing average, and a provider fallback remains visible when it fires. </figcaption>
+                <details class="evidence-drawer is-inline">
+                  <summary>View the original redacted report</summary>
+                  <div class="evidence-grid">
+                    <img src="/assets/proof-chat-cost.webp" width="700" height="454" loading="lazy" decoding="async" alt="The original redacted daily AI cost report." />
+                  </div>
+                </details>
               </figure>
         </div>
       </section>
