@@ -84,7 +84,7 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=20" />
+    <link rel="stylesheet" href="/styles.css?v=21" />
     <script src="/script.js?v=21" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script
@@ -382,29 +382,49 @@
       </section>
 
       <section class="section demo reveal-on-scroll" id="demo-trip" aria-labelledby="demo-trip-title">
-        <p class="section-kicker">Seen in the system</p>
+        <p class="section-kicker">Original interface: WhatsApp</p>
         <h2 class="cursor-reactive" id="demo-trip-title">It travels with the family.</h2>
         <p class="demo-lede">
-          A shared trip runs in an ordinary group thread. The assistant answers questions
-          about the destination, writes the briefings, and keeps watching the bookings
-          after everything is planned.
+          There is no new app for the family to learn. The assistant joins the WhatsApp group
+          everyone already uses, so questions, updates and shared decisions stay visible to the
+          whole group. It answers questions, writes briefings and keeps watching the bookings.
         </p>
         <div class="trip-showcase" data-story-switcher>
-          <div class="story-tabs" role="tablist" aria-label="Trip demonstrations">
-            <button type="button" role="tab" aria-selected="true" aria-controls="trip-flight" id="trip-flight-tab" data-story-tab="trip-flight">Flight change</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="trip-question" id="trip-question-tab" data-story-tab="trip-question" tabindex="-1">A question</button>
-            <button type="button" role="tab" aria-selected="false" aria-controls="trip-brief" id="trip-brief-tab" data-story-tab="trip-brief" tabindex="-1">Tomorrow's brief</button>
+          <p class="story-choice-label">Choose a real trip story</p>
+          <div class="story-tabs" role="tablist" aria-label="Choose a trip story">
+            <button type="button" role="tab" aria-selected="true" aria-controls="trip-flight" id="trip-flight-tab" data-story-tab="trip-flight">
+              <span class="story-tab-icon" aria-hidden="true">✈️</span>
+              <span class="story-tab-copy"><b>Flight change</b><small>A booking changed</small></span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="trip-question" id="trip-question-tab" data-story-tab="trip-question" tabindex="-1">
+              <span class="story-tab-icon" aria-hidden="true">🦁</span>
+              <span class="story-tab-copy"><b>A question</b><small>How hard is the climb?</small></span>
+            </button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="trip-brief" id="trip-brief-tab" data-story-tab="trip-brief" tabindex="-1">
+              <span class="story-tab-icon" aria-hidden="true">🌊</span>
+              <span class="story-tab-copy"><b>Tomorrow's brief</b><small>Sent before anyone asked</small></span>
+            </button>
           </div>
 
           <div class="trip-panel is-active" id="trip-flight" role="tabpanel" aria-labelledby="trip-flight-tab" data-story-panel>
             <div class="story-canvas" data-proof-story>
-              <div class="native-chat">
-                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+              <div class="native-chat whatsapp-chat">
+                <div class="native-chat-bar">
+                  <span class="wa-avatar" aria-hidden="true">✈️</span>
+                  <span class="wa-group-copy"><b>Family trip</b><small>WhatsApp group</small></span>
+                  <span class="wa-chat-actions" aria-hidden="true">⌕ &nbsp; ⋮</span>
+                </div>
                 <div class="native-chat-feed">
                   <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="1800" data-caption="The group was told what changed">
-                    <span class="speaker">Private AI</span>
-                    <p><b>Flight update:</b> departure has moved 30 minutes earlier. The arrival time and both terminals are unchanged.</p>
-                    <time>09:12</time>
+                    <span class="speaker">etgar.ai</span>
+                    <p><b>✈️ Flight update</b></p>
+                    <p>According to TriFlight and Trip.com, the current schedule is:</p>
+                    <ul class="chat-detail-list">
+                      <li><b>Departure:</b> 14:30 Dubai time, Terminal 3</li>
+                      <li><b>Arrival:</b> 19:45 Colombo time, Terminal 1</li>
+                    </ul>
+                    <p>The trip file says 15:00, so departure is <b>30 minutes earlier</b>. The terminals are unchanged.</p>
+                    <span class="message-meta"><time>09:12</time><i aria-label="Delivered">✓✓</i></span>
                   </div>
                 </div>
               </div>
@@ -429,18 +449,25 @@
 
           <div class="trip-panel" id="trip-question" role="tabpanel" aria-labelledby="trip-question-tab" data-story-panel hidden>
             <div class="story-canvas" data-proof-story>
-              <div class="native-chat">
-                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+              <div class="native-chat whatsapp-chat">
+                <div class="native-chat-bar">
+                  <span class="wa-avatar" aria-hidden="true">✈️</span>
+                  <span class="wa-group-copy"><b>Family trip</b><small>WhatsApp group</small></span>
+                  <span class="wa-chat-actions" aria-hidden="true">⌕ &nbsp; ⋮</span>
+                </div>
                 <div class="native-chat-feed">
                   <div class="chat-bubble person story-beat" data-sequence="1" data-hold="950" data-caption="A question arrived in the ordinary group">
                     <span class="speaker">Family member</span>
-                    <p>How difficult is the climb, and how high is it?</p>
-                    <time>18:42</time>
+                    <p>@etgar.ai How difficult is tomorrow's climb, and how high is it?</p>
+                    <span class="message-meta"><time>18:42</time><i aria-label="Read">✓✓</i></span>
                   </div>
                   <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="1900" data-caption="The answer separated general knowledge from trip records">
-                    <span class="speaker">Private AI</span>
-                    <p>It rises about 200 metres above the surrounding jungle. Expect roughly 1,200 steps, including steep sections.</p>
-                    <time>18:42</time>
+                    <span class="speaker">etgar.ai</span>
+                    <p>Tomorrow's route includes <b>Sigiriya, or Lion Rock</b>. 🦁</p>
+                    <p><b>Height:</b> about 200 metres above the surrounding jungle, and roughly 350 metres above sea level.</p>
+                    <p><b>Difficulty:</b> not a hard athletic climb, but it is demanding. Expect around <b>1,200 steps</b>, including some steep sections with railings.</p>
+                    <p class="source-note">ℹ️ This difficulty information is general destination knowledge, not from the trip files.</p>
+                    <span class="message-meta"><time>18:42</time><i aria-label="Delivered">✓✓</i></span>
                   </div>
                 </div>
               </div>
@@ -462,13 +489,22 @@
 
           <div class="trip-panel" id="trip-brief" role="tabpanel" aria-labelledby="trip-brief-tab" data-story-panel hidden>
             <div class="story-canvas" data-proof-story>
-              <div class="native-chat">
-                <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family trip</span><span>Shared group</span></div>
+              <div class="native-chat whatsapp-chat">
+                <div class="native-chat-bar">
+                  <span class="wa-avatar" aria-hidden="true">✈️</span>
+                  <span class="wa-group-copy"><b>Family trip</b><small>WhatsApp group</small></span>
+                  <span class="wa-chat-actions" aria-hidden="true">⌕ &nbsp; ⋮</span>
+                </div>
                 <div class="native-chat-feed">
                   <div class="chat-bubble assistant story-beat" data-sequence="3" data-hold="2100" data-caption="A useful briefing arrived before anyone asked">
-                    <span class="speaker">Private AI</span>
-                    <p><b>Tomorrow:</b> a short transfer, the climb and a garden visit. Bring water, a hat, sunscreen and sturdy shoes.</p>
-                    <time>21:00</time>
+                    <span class="speaker">etgar.ai</span>
+                    <p><b>🏝️ Tomorrow's family brief</b></p>
+                    <p><b>Base:</b> Havana Club, Uppuveli. We are staying here for a few more days.</p>
+                    <p>🚐 A short drive to <b>Nilaveli</b> for snorkeling.</p>
+                    <p>🐠 <b>Plan:</b> reef snorkeling, colourful fish, and perhaps small, harmless reef sharks. Later: rest, pool and beach. Everything stays flexible with the conditions.</p>
+                    <p>🎒 <b>Bring:</b> swimwear, waterproof sunscreen, water shoes, snorkel masks, beach towels and cash.</p>
+                    <p>Good night. Tomorrow will be beautiful. 🌊</p>
+                    <span class="message-meta"><time>21:00</time><i aria-label="Delivered">✓✓</i></span>
                   </div>
                 </div>
               </div>
@@ -493,8 +529,8 @@
         </div>
 
         <p class="reconstruction-note"><i aria-hidden="true"></i> Recreated from real exchanges. Names and personal details have been removed.</p>
-        <details class="evidence-drawer">
-          <summary>View the original redacted trip captures</summary>
+        <details class="evidence-drawer evidence-drawer-whatsapp">
+          <summary><span aria-hidden="true">💬</span> Open the original, redacted WhatsApp chats from the trip group</summary>
           <div class="evidence-grid">
             <img src="/assets/proof-trip-flight.webp" width="850" height="440" loading="lazy" decoding="async" alt="The original redacted flight-change message." />
             <img src="/assets/proof-trip-question.webp" width="724" height="598" loading="lazy" decoding="async" alt="The original redacted destination question and answer." />
@@ -504,50 +540,57 @@
       </section>
 
       <section class="section demo reveal-on-scroll" id="demo-allowance" aria-labelledby="demo-allowance-title">
-        <p class="section-kicker">Seen in the system</p>
+        <p class="section-kicker">Original interface: WhatsApp</p>
         <h2 class="cursor-reactive" id="demo-allowance-title">It settles the family's small economy.</h2>
         <p class="demo-lede">
-          Chores, points and pocket money run in the family group. The price list is fixed
-          in advance, so what a job is worth is not renegotiated at the end of the week.
+          The family reports chores in the WhatsApp group they already share, where everyone can
+          participate and see the result. The price list is fixed in advance, so what a job is worth
+          is not renegotiated at the end of the week.
         </p>
         <figure class="allowance-story" data-proof-story>
           <div class="story-canvas">
-            <div class="native-chat">
-              <div class="native-chat-bar"><span><i aria-hidden="true"></i> Family chores</span><span>Shared group</span></div>
+            <div class="native-chat whatsapp-chat">
+              <div class="native-chat-bar">
+                <span class="wa-avatar" aria-hidden="true">🧹</span>
+                <span class="wa-group-copy"><b>Family chores</b><small>WhatsApp group</small></span>
+                <span class="wa-chat-actions" aria-hidden="true">⌕ &nbsp; ⋮</span>
+              </div>
               <div class="native-chat-feed">
                 <div class="chat-bubble person story-beat" data-sequence="1" data-hold="950" data-caption="A child reports two completed chores">
                   <span class="speaker">Child</span>
-                  <p>Please add these two chores to my tally.</p>
-                  <time>16:13</time>
+                  <p>@etgar.ai I unloaded the dishwasher and loaded it again. 🍽️ Please add both.</p>
+                  <span class="message-meta"><time>16:13</time><i aria-label="Read">✓✓</i></span>
                 </div>
-                <div class="chat-bubble assistant story-beat" data-sequence="4" data-hold="1900" data-caption="The assistant stops instead of inventing a value">
-                  <span class="speaker">Private AI</span>
-                  <p>I found one task, but I cannot match the other wording to the fixed list. Is it a different registered chore, or something new?</p>
-                  <time>16:13</time>
+                <div class="chat-bubble assistant story-beat" data-sequence="4" data-hold="1900" data-caption="Unloading matches, but loading alone needs clarification">
+                  <span class="speaker">etgar.ai</span>
+                  <p>I matched <b>“Unload the dishwasher,”</b> but <b>“load the dishwasher”</b> is not a standalone task in the fixed chore list.</p>
+                  <p>Did you mean <b>“Clear the sink and load the dishwasher,”</b> or is this a new chore?</p>
+                  <span class="message-meta"><time>16:13</time><i aria-label="Delivered">✓✓</i></span>
                 </div>
                 <div class="chat-bubble person story-beat" data-sequence="5" data-hold="850" data-caption="The request is corrected">
                   <span class="speaker">Child</span>
-                  <p>I meant the registered version.</p>
-                  <time>16:14</time>
+                  <p>Yes. I cleared the sink and loaded the dishwasher. 👍</p>
+                  <span class="message-meta"><time>16:14</time><i aria-label="Read">✓✓</i></span>
                 </div>
                 <div class="chat-bubble assistant story-beat" data-sequence="7" data-hold="1800" data-caption="Both chores are awarded and the weekly total is updated">
-                  <span class="speaker">Private AI</span>
-                  <p>Done. Both chores have been added, and the new weekly total is recorded.</p>
-                  <time>16:14</time>
+                  <span class="speaker">etgar.ai</span>
+                  <p>✅ <b>Unload the dishwasher: +15 points</b><br />Weekly total: <b>35 points</b>.</p>
+                  <p>✅ <b>Clear the sink and load the dishwasher: +15 points</b><br />Weekly total: <b>50 points</b>. 🎉</p>
+                  <span class="message-meta"><time>16:14</time><i aria-label="Delivered">✓✓</i></span>
                 </div>
               </div>
             </div>
 
             <div class="decision-rail">
               <p class="rail-label">What happened behind the conversation</p>
-              <div class="decision-card story-beat" data-sequence="2" data-hold="1050" data-caption="The wording is checked against the fixed chore list">
-                <span>01</span><div><b>Fixed list checked</b><p>Point values come from the family rulebook, not from the message.</p></div>
+              <div class="decision-card story-beat" data-sequence="2" data-hold="1050" data-caption="One chore matches; the other phrase does not">
+                <span>01</span><div><b>Fixed list checked</b><p>“Unload the dishwasher” matches. “Load the dishwasher” alone does not.</p></div>
               </div>
               <div class="decision-card is-caution story-beat" data-sequence="3" data-hold="1050" data-caption="The assistant refuses to invent a value">
                 <span>02</span><div><b>No guessing</b><p>An unknown phrase stops the process until the family clarifies it.</p></div>
               </div>
-              <div class="decision-card story-beat" data-sequence="6" data-hold="850" data-caption="Two exact matches are found">
-                <span>03</span><div><b>Exact match</b><p>Both registered chores resolve to their approved point values.</p></div>
+              <div class="decision-card story-beat" data-sequence="6" data-hold="850" data-caption="The clarification resolves the second chore">
+                <span>03</span><div><b>Exact match</b><p>The clarification maps to “Clear the sink and load the dishwasher.”</p></div>
               </div>
               <div class="outcome-card story-beat" data-sequence="8" data-hold="1600" data-caption="The result becomes part of the running ledger">
                 <small>Ledger updated</small><strong>+15 &nbsp; +15</strong><span>Weekly total recalculated</span>
@@ -561,14 +604,14 @@
           </div>
           <figcaption>
             <b>Pocket money, and an assistant that refuses to guess.</b>
-            The important part is not the chat interface. It is the rule-following behind it:
+            The familiar chat is only the surface. The important part is the rule-following behind it:
             verify the wording, ask when uncertain, then update the ledger deterministically.
           </figcaption>
         </figure>
 
         <p class="reconstruction-note"><i aria-hidden="true"></i> Recreated from a real family exchange. Names and personal details have been removed.</p>
-        <details class="evidence-drawer">
-          <summary>View the original redacted exchange</summary>
+        <details class="evidence-drawer evidence-drawer-whatsapp">
+          <summary><span aria-hidden="true">💬</span> Open the original, redacted WhatsApp chat from the family chores group</summary>
           <div class="evidence-strip">
             <img src="/assets/msg-chores-1.webp" width="724" height="168" loading="lazy" decoding="async" alt="The original redacted request for two chores." />
             <img src="/assets/msg-chores-2.webp" width="724" height="302" loading="lazy" decoding="async" alt="The original redacted reply asking for clarification." />

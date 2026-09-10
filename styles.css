@@ -1824,6 +1824,8 @@ html[dir="rtl"] .hero-actions {
 
 .native-chat-bar,
 .system-window-bar {
+  display: flex;
+  align-items: center;
   min-height: 52px;
   padding: 0 18px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1834,40 +1836,61 @@ html[dir="rtl"] .hero-actions {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 510px;
-  max-height: 510px;
+  min-height: 560px;
+  max-height: 560px;
   overflow: hidden;
   padding: 24px 20px;
   background:
-    radial-gradient(circle at 10% 10%, rgba(89, 164, 129, 0.1), transparent 28%),
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    #10201a;
-  background-size: auto, 28px 28px, 28px 28px, auto;
+    radial-gradient(circle at 18px 18px, transparent 0 5px, rgba(255, 255, 255, 0.025) 5px 6px, transparent 6px),
+    radial-gradient(circle at 44px 38px, transparent 0 8px, rgba(255, 255, 255, 0.02) 8px 9px, transparent 9px),
+    #0b141a;
+  background-size: 64px 64px, 86px 86px, auto;
   scroll-behavior: smooth;
 }
 
 .chat-bubble {
+  position: relative;
   width: fit-content;
   max-width: 86%;
-  padding: 12px 14px 9px;
-  border-radius: 17px;
+  padding: 9px 12px 7px;
+  border-radius: 9px;
   box-shadow: 0 10px 24px rgba(4, 10, 7, 0.18);
 }
 
 .chat-bubble.person {
   align-self: flex-end;
-  border-bottom-right-radius: 5px;
-  color: var(--ink);
-  background: #f0e7d5;
+  border-top-right-radius: 2px;
+  color: rgba(255, 255, 255, 0.94);
+  background: #005c4b;
 }
 
 .chat-bubble.assistant {
   align-self: flex-start;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 2px;
   color: rgba(255, 255, 255, 0.92);
-  background: #284b3d;
+  background: #202c33;
+}
+
+.chat-bubble::before {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  content: "";
+  border-style: solid;
+}
+
+.chat-bubble.person::before {
+  right: -8px;
+  border-width: 0 0 10px 10px;
+  border-color: transparent transparent transparent #005c4b;
+}
+
+.chat-bubble.assistant::before {
+  left: -8px;
+  border-width: 0 10px 10px 0;
+  border-color: transparent #202c33 transparent transparent;
 }
 
 .chat-bubble .speaker {
@@ -1877,11 +1900,11 @@ html[dir="rtl"] .hero-actions {
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .chat-bubble.assistant .speaker {
-  color: #9fe0bf;
+  color: #53bdeb;
 }
 
 .chat-bubble p {
@@ -1890,19 +1913,98 @@ html[dir="rtl"] .hero-actions {
   line-height: 1.48;
 }
 
-.chat-bubble time {
-  display: block;
+.chat-bubble p + p,
+.chat-detail-list + p {
+  margin-top: 9px;
+}
+
+.chat-detail-list {
+  margin: 7px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.5;
+}
+
+.chat-detail-list li + li {
+  margin-top: 2px;
+}
+
+.chat-bubble .source-note {
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+.message-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
   margin-top: 5px;
-  text-align: right;
-  opacity: 0.58;
+  color: rgba(255, 255, 255, 0.56);
   font-size: 10px;
+}
+
+.message-meta i {
+  color: #53bdeb;
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: -3px;
+}
+
+.whatsapp-chat .native-chat-bar {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  gap: 11px;
+  min-height: 62px;
+  padding: 7px 14px;
+  background: #202c33;
+}
+
+.native-chat-bar .wa-avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #3b4a54;
+  font-size: 18px;
+}
+
+.native-chat-bar .wa-group-copy {
+  display: block;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.wa-group-copy b,
+.wa-group-copy small {
+  display: block;
+}
+
+.wa-group-copy b {
+  font-size: 14px;
+}
+
+.wa-group-copy small {
+  margin-top: 1px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 11px;
+}
+
+.native-chat-bar .wa-chat-actions {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .decision-rail {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 562px;
+  min-height: 624px;
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: 24px;
@@ -2015,34 +2117,98 @@ html[dir="rtl"] .hero-actions {
   color: var(--ink);
 }
 
+.story-choice-label {
+  margin: 28px 0 10px;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .story-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
-  padding: 5px;
-  width: fit-content;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 250, 240, 0.72);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 26px;
 }
 
 .story-tabs button {
-  min-height: 38px;
-  padding: 7px 16px;
-  border: 0;
-  border-radius: 999px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 10px;
+  align-items: center;
+  min-height: 72px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
   color: var(--muted);
-  background: transparent;
+  background: rgba(255, 250, 240, 0.76);
   font: inherit;
-  font-size: 13px;
-  font-weight: 750;
+  text-align: left;
   cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.story-tabs button:hover,
+.story-tabs button:focus-visible {
+  border-color: rgba(36, 77, 61, 0.5);
+  transform: translateY(-2px);
 }
 
 .story-tabs button[aria-selected="true"] {
   color: var(--white);
   background: var(--green);
-  box-shadow: 0 8px 20px rgba(36, 77, 61, 0.18);
+  box-shadow: 0 12px 26px rgba(36, 77, 61, 0.2);
+}
+
+.story-tabs button[aria-selected="true"]::after {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  content: "Selected";
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.story-tab-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--paper-strong);
+  font-size: 18px;
+}
+
+.story-tabs button[aria-selected="true"] .story-tab-icon {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.story-tab-copy b,
+.story-tab-copy small {
+  display: block;
+}
+
+.story-tab-copy b {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.story-tab-copy small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.story-tabs button[aria-selected="true"] .story-tab-copy b,
+.story-tabs button[aria-selected="true"] .story-tab-copy small {
+  color: var(--white);
 }
 
 .trip-panel[hidden] {
@@ -2284,6 +2450,27 @@ html[dir="rtl"] .hero-actions {
   list-style: none;
 }
 
+.evidence-drawer-whatsapp {
+  margin-top: 28px;
+  border: 1px solid rgba(36, 77, 61, 0.2);
+  border-radius: 16px;
+  background: rgba(255, 250, 240, 0.58);
+}
+
+.evidence-drawer-whatsapp summary {
+  padding: 16px 48px 16px 16px;
+  font-size: 14px;
+}
+
+.evidence-drawer-whatsapp summary::after {
+  right: 16px;
+}
+
+.evidence-drawer-whatsapp .evidence-grid,
+.evidence-drawer-whatsapp .evidence-strip {
+  padding: 2px 12px 14px;
+}
+
 .evidence-drawer summary::-webkit-details-marker {
   display: none;
 }
@@ -2379,12 +2566,6 @@ html[dir="rtl"] .hero-actions {
 
   .story-tabs {
     width: 100%;
-    overflow-x: auto;
-    border-radius: 16px;
-  }
-
-  .story-tabs button {
-    flex: none;
   }
 
   .evidence-grid,
@@ -2417,9 +2598,13 @@ html[dir="rtl"] .hero-actions {
   }
 
   .native-chat-feed {
-    min-height: 460px;
-    max-height: 460px;
+    min-height: 520px;
+    max-height: 520px;
     padding: 18px 14px;
+  }
+
+  .chat-bubble {
+    max-width: 92%;
   }
 
   .decision-rail {
@@ -2451,16 +2636,18 @@ html[dir="rtl"] .hero-actions {
   }
 
   .trip-showcase .native-chat-feed {
-    min-height: 360px;
-    max-height: 360px;
+    min-height: 520px;
+    max-height: 520px;
   }
 
   .story-tabs {
-    padding: 4px;
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .story-tabs button {
-    padding-inline: 13px;
+    min-height: 64px;
+    padding: 9px 12px;
   }
 
   .system-event {
