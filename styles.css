@@ -2734,6 +2734,15 @@ html[dir="rtl"] .hero-actions {
   border-top: 1px solid var(--line);
 }
 
+.model-proof-row {
+  margin-top: clamp(42px, 5vw, 66px);
+}
+
+.ops-health-row {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
 .home-monitor-copy h3 {
   margin: 8px 0 12px;
   font-family: var(--font-display);
