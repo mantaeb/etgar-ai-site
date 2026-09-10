@@ -84,8 +84,8 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="/styles.css?v=21" />
-    <script src="/script.js?v=21" defer></script>
+    <link rel="stylesheet" href="/styles.css?v=22" />
+    <script src="/script.js?v=22" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script
       defer
@@ -276,79 +276,133 @@
         <p class="section-kicker">Seen in the system</p>
         <h2 class="cursor-reactive" id="demo-home-title">It runs the house it lives in.</h2>
         <p class="demo-lede">
-          The connected home is one of the places the system acts rather than a separate
-          hobby. Rooms, scenes, sensors and gates are grouped by the moment they serve,
-          and the house is watched as well as driven.
+          The connected home is part of the same operating layer, not a separate hobby.
+          This real phone walkthrough moves from the whole house to one room, a shared
+          occasion and the watering system underneath it.
         </p>
-        <div class="scene-row is-pair">
-              <figure class="scene scene-redacted">
-                <div class="scene-frame">
-                  <img src="/assets/proof-home-overview.webp" width="1200" height="1074" loading="lazy" decoding="async"
-                    alt="A home dashboard listing every room grouped by floor across four levels, with two room labels covered by redaction bars." />
-                  <span class="redaction" style="left:18.90%;top:73.36%;width:10.73%;height:1.60%;animation-delay:180ms"></span>
-                  <span class="redaction" style="left:35.51%;top:73.36%;width:9.29%;height:1.60%;animation-delay:300ms"></span>
-                </div>
-                <figcaption> <b>Four levels, one map.</b>
-                  Every room and device grouped by floor, so "turn the garden lights
-                  off" resolves to the right place without anyone naming a device.
-                </figcaption>
-              </figure>
-
-          <div class="scene-stack">
-                <figure class="scene">
-                  <div class="scene-frame">
-                    <img src="/assets/proof-home-entertaining.webp" width="1200" height="742" loading="lazy" decoding="async"
-                      alt="A home dashboard view for entertaining, grouping music players, living room, kitchen, entrance, staircase, gate and garden lighting controls." />
-                  </div>
-                  <figcaption> <b>A scene, ready to run.</b> Music, lighting, the staircase and the gate, grouped by the occasion they serve rather than by the protocol they speak. </figcaption>
-                </figure>
-
-                  <figure class="system-story compact-story" data-proof-story>
-                    <div class="system-window">
-                      <div class="system-window-bar">
-                        <span><i aria-hidden="true"></i> Garden monitor</span>
-                        <span>Automatic</span>
-                      </div>
-                      <div class="system-feed" aria-live="polite">
-                        <div class="system-event story-beat" data-sequence="1" data-hold="850" data-caption="The morning cycle completed">
-                          <span class="event-time">06:03</span>
-                          <div><b>Morning watering completed</b><small>Soil moisture increased by 2%</small></div>
-                          <span class="event-state is-good">Done</span>
-                        </div>
-                        <div class="system-event story-beat" data-sequence="2" data-hold="950" data-caption="The afternoon cycle completed too">
-                          <span class="event-time">13:03</span>
-                          <div><b>Afternoon watering completed</b><small>Soil moisture increased by 2%</small></div>
-                          <span class="event-state is-good">Done</span>
-                        </div>
-                        <div class="system-event story-beat" data-sequence="3" data-hold="1200" data-caption="The sensor remained unusually high">
-                          <span class="event-time">13:45</span>
-                          <div><b>Soil moisture: 98%</b><small>Still unchanged after both cycles</small></div>
-                          <span class="event-state">Watch</span>
-                        </div>
-                        <div class="system-alert story-beat" data-sequence="4" data-hold="1800" data-caption="A possible leak was raised without being asked">
-                          <span aria-hidden="true">!</span>
-                          <div><b>Possible leak or stuck water</b><small>The system raised this alert on its own.</small></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="story-controls">
-                      <button class="story-replay" type="button" data-story-replay>Replay the check</button>
-                      <span data-story-caption>The morning cycle completed</span>
-                    </div>
-                    <figcaption>
-                      <b>An alert nobody asked for.</b>
-                      It confirms the scheduled work, keeps watching the sensor, and
-                      raises the exception rather than making the family inspect a dashboard.
-                    </figcaption>
-                    <details class="evidence-drawer is-inline">
-                      <summary>View the original redacted alert</summary>
-                      <div class="evidence-grid">
-                        <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
-                          alt="The original irrigation report confirming two watering cycles, then warning of a possible leak." />
-                      </div>
-                    </details>
-                  </figure>
+        <div class="graph-story home-story" data-home-story>
+          <div class="graph-player home-player">
+            <div class="graph-stage home-stage">
+              <div class="graph-stage-bar">
+                <span><i aria-hidden="true"></i> Live home control</span>
+                <span>Recorded from the working system</span>
+              </div>
+              <video
+                data-home-video
+                muted
+                playsinline
+                preload="metadata"
+                poster="/assets/proof-home-walkthrough-poster.webp"
+                aria-label="A real phone walkthrough moving from a house overview to room controls, entertaining mode and the watering dashboard."
+              >
+                <source src="/assets/proof-home-walkthrough.mp4" type="video/mp4" />
+              </video>
+              <span class="graph-recording"><i aria-hidden="true"></i> Real phone recording</span>
+            </div>
+            <div class="story-controls">
+              <button class="story-replay" type="button" data-home-replay>Replay the walkthrough</button>
+              <span data-home-caption>The whole house at a glance</span>
+            </div>
           </div>
+
+          <ol class="graph-steps home-steps" aria-label="What the home walkthrough demonstrates">
+            <li data-home-step class="is-active">
+              <span>01</span>
+              <div>
+                <b>The whole house at a glance</b>
+                <p>Rooms and devices are grouped by floor, so the system understands where an instruction belongs.</p>
+              </div>
+            </li>
+            <li data-home-step>
+              <span>02</span>
+              <div>
+                <b>One room, direct control</b>
+                <p>Lights, blinds, climate and media remain available in one place when direct control is useful.</p>
+              </div>
+            </li>
+            <li data-home-step>
+              <span>03</span>
+              <div>
+                <b>A moment, not a device list</b>
+                <p>Entertaining brings the living room, kitchen, entrance, staircase and gate into one useful view.</p>
+              </div>
+            </li>
+            <li data-home-step>
+              <span>04</span>
+              <div>
+                <b>The infrastructure underneath</b>
+                <p>Watering totals, valve state, flow and missed-run alerts are visible when the family needs the detail.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <details class="evidence-drawer home-evidence">
+          <summary>View the original redacted home captures</summary>
+          <div class="evidence-grid is-pair">
+            <figure>
+              <img src="/assets/proof-home-overview.webp" width="1200" height="1074" loading="lazy" decoding="async"
+                alt="A home dashboard listing rooms by floor across four levels, with two private room labels covered by opaque redaction bars." />
+              <figcaption>Four levels, grouped into one readable map.</figcaption>
+            </figure>
+            <figure>
+              <img src="/assets/proof-home-entertaining.webp" width="1200" height="742" loading="lazy" decoding="async"
+                alt="A home dashboard grouping shared-space controls for entertaining." />
+              <figcaption>Shared-space controls grouped around entertaining.</figcaption>
+            </figure>
+          </div>
+        </details>
+
+        <div class="home-monitor-row">
+          <div class="home-monitor-copy">
+            <p class="rail-label">Watching as well as driving</p>
+            <h3>The interface is only half the point.</h3>
+            <p>The system confirms scheduled work, keeps reading the sensors and raises an exception without waiting for someone to inspect a dashboard.</p>
+          </div>
+          <figure class="system-story compact-story" data-proof-story>
+            <div class="system-window">
+              <div class="system-window-bar">
+                <span><i aria-hidden="true"></i> Garden monitor</span>
+                <span>Automatic</span>
+              </div>
+              <div class="system-feed" aria-live="polite">
+                <div class="system-event story-beat" data-sequence="1" data-hold="850" data-caption="The morning cycle completed">
+                  <span class="event-time">06:03</span>
+                  <div><b>Morning watering completed</b><small>Soil moisture increased by 2%</small></div>
+                  <span class="event-state is-good">Done</span>
+                </div>
+                <div class="system-event story-beat" data-sequence="2" data-hold="950" data-caption="The afternoon cycle completed too">
+                  <span class="event-time">13:03</span>
+                  <div><b>Afternoon watering completed</b><small>Soil moisture increased by 2%</small></div>
+                  <span class="event-state is-good">Done</span>
+                </div>
+                <div class="system-event story-beat" data-sequence="3" data-hold="1200" data-caption="The sensor remained unusually high">
+                  <span class="event-time">13:45</span>
+                  <div><b>Soil moisture: 98%</b><small>Still unchanged after both cycles</small></div>
+                  <span class="event-state">Watch</span>
+                </div>
+                <div class="system-alert story-beat" data-sequence="4" data-hold="1800" data-caption="A possible leak was raised without being asked">
+                  <span aria-hidden="true">!</span>
+                  <div><b>Possible leak or stuck water</b><small>The system raised this alert on its own.</small></div>
+                </div>
+              </div>
+            </div>
+            <div class="story-controls">
+              <button class="story-replay" type="button" data-story-replay>Replay the check</button>
+              <span data-story-caption>The morning cycle completed</span>
+            </div>
+            <figcaption>
+              <b>An alert nobody asked for.</b>
+              It confirms the work, notices an abnormal reading and sends the exception to the family.
+            </figcaption>
+            <details class="evidence-drawer is-inline">
+              <summary>View the original redacted alert</summary>
+              <div class="evidence-grid">
+                <img src="/assets/proof-chat-irrigation.webp" width="700" height="374" loading="lazy" decoding="async"
+                  alt="The original irrigation report confirming two watering cycles, then warning of a possible leak." />
+              </div>
+            </details>
+          </figure>
         </div>
       </section>
 
@@ -666,19 +720,15 @@
         <div class="scene-row is-pair">
               <figure class="scene scene-tall scene-scan">
                 <div class="scene-frame">
-                  <img src="/assets/proof-status-panel.webp" width="1200" height="2320" loading="lazy" decoding="async"
-                    alt="A status dashboard showing AI plan consumption for two coding assistants, gauges for backup freshness, size, disk, memory, CPU load and sync peers, a list of live agent sessions, and rows of vault and machine checks. Product names, one service name and an address are covered by redaction bars." />
+                  <img src="/assets/proof-status-panel.webp" width="980" height="1796" loading="lazy" decoding="async"
+                    alt="A status dashboard showing green checks for the knowledge base and its machine, plus one failed service in red. Product names, a service name, an address and an internal path are covered by opaque redaction bars." />
                 </div>
                 <figcaption>
                   <b>The health panel, mid-day.</b>
-                  It opens with what the assistants are costing in plan capacity, session
-                  and week to date, because a private system running on commercial models
-                  is only sustainable if that number is watched. Then backup freshness,
-                  size, disk, memory, load and sync peers, and explicit checks for merge
-                  conflicts and for credential-shaped strings that should never appear in
-                  the notes. One check is amber and the panel says so rather than hiding
-                  it. The live sessions are the coding agents used to build and maintain
-                  the system.
+                  Backup freshness, credential checks, scheduled jobs, disk, memory, load
+                  and connectivity stay visible in one report. Here, one service is red
+                  while the rest remains healthy. That is when a WhatsApp alert fires,
+                  followed by one recovery message when the fault clears.
                 </figcaption>
               </figure>
 

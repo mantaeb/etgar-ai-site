@@ -480,6 +480,69 @@ function initGraphStory() {
   observer.observe(story);
 }
 
+function initHomeStory() {
+  const story = document.querySelector("[data-home-story]");
+  if (!story) return;
+
+  const video = story.querySelector("[data-home-video]");
+  const replay = story.querySelector("[data-home-replay]");
+  const caption = story.querySelector("[data-home-caption]");
+  const steps = Array.from(story.querySelectorAll("[data-home-step]"));
+  const labels = [
+    "The whole house at a glance",
+    "One room, direct control",
+    "A moment, not a device list",
+    "The infrastructure underneath",
+  ];
+
+  if (!video || !steps.length) return;
+
+  function setStep(index) {
+    steps.forEach((step, stepIndex) => step.classList.toggle("is-active", stepIndex === index));
+    if (caption) caption.textContent = labels[index];
+  }
+
+  function updateStep() {
+    const time = video.currentTime;
+    setStep(time < 2.3 ? 0 : time < 9.8 ? 1 : time < 11.4 ? 2 : 3);
+  }
+
+  function restart() {
+    video.currentTime = 0;
+    setStep(0);
+    const playAttempt = video.play();
+    if (playAttempt) playAttempt.catch(() => {});
+  }
+
+  video.addEventListener("timeupdate", updateStep);
+  video.addEventListener("ended", () => setStep(3));
+  if (replay) replay.addEventListener("click", restart);
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    video.pause();
+    setStep(0);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (story.dataset.started !== "1" || video.ended) restart();
+          else video.play().catch(() => {});
+          story.dataset.started = "1";
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  observer.observe(story);
+}
+
 const playProofStory = initProofStories();
 initStorySwitchers(playProofStory);
 initGraphStory();
+initHomeStory();
