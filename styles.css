@@ -349,6 +349,24 @@ h1 {
   font-size: clamp(20px, 2.2vw, 28px);
 }
 
+.lang-note {
+  max-width: 650px;
+  margin-top: -16px;
+  margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(15px, 1.3vw, 17px);
+}
+
+.lang-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lang-note a:hover {
+  color: #fff;
+}
+
 .hero-actions,
 .button {
   display: flex;
