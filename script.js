@@ -307,16 +307,7 @@ function initProofStories() {
 
   function reveal(beat) {
     beat.hidden = false;
-    // The class below rides a frame callback so the fade has a state to
-    // transition from. If that frame never arrives, because the tab is
-    // throttled or the page is being rendered headless, this net still shows
-    // the beat rather than leaving the panel blank. Same failure the thread
-    // player hit, same remedy.
-    const net = window.setTimeout(() => {
-      if (!beat.hidden) beat.classList.add("is-shown");
-    }, 320);
     window.requestAnimationFrame(() => {
-      window.clearTimeout(net);
       beat.classList.add("is-shown");
       const feed = beat.closest(".native-chat-feed");
       if (feed) {

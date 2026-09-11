@@ -711,73 +711,17 @@
           <div class="home-monitor-copy">
             <p class="rail-label">Multiple models, one governed system</p>
             <h3>Model choice stays flexible. Usage stays visible.</h3>
-            <p class="model-row-note">Requests can move between providers when needed, while usage and cost remain measured by provider and every fallback stays visible.</p>
-            <p class="model-row-note"><b>Subscriptions carry the work.</b> The everyday running sits inside fixed-price plans, so the monthly cost is a known number rather than a variable one. Metered API billing is used only where no plan covers the job, which keeps it a deliberate exception instead of the default.</p>
-            <figure class="usage-pacer" data-proof-story>
-              <div class="usage-pacer-window">
-                <div class="system-window-bar">
-                  <span><i aria-hidden="true"></i> Plan consumption</span>
-                  <span>Rolling windows</span>
-                </div>
-                <div class="usage-pacer-body">
-                  <article class="usage-plan">
-                    <header class="usage-plan-head"><b>Claude</b><span>Pro</span></header>
-                    <div class="usage-meter story-beat is-warn" data-sequence="1" data-hold="1500"
-                      data-caption="Consumption is read per plan, not per conversation"
-                      style="--fill: 47%; --pace: 52%; --project: 91%;">
-                      <div class="usage-meter-head"><span>Session, 5 hours</span><b>47%</b></div>
-                      <div class="usage-track" aria-hidden="true"><i class="usage-fill"></i><i class="usage-tick"></i></div>
-                      <div class="usage-forecast" aria-hidden="true"><i class="usage-forecast-line"></i></div>
-                      <p class="usage-window">Resets in 2h 24m</p>
-                      <p class="usage-projection">52% into the window, on pace for <b>91% by reset</b></p>
-                    </div>
-                    <div class="usage-meter story-beat is-ok" data-sequence="2" data-hold="1450"
-                      data-caption="The tick marks where a flat burn would stand right now"
-                      style="--fill: 55%; --pace: 71%; --project: 77%;">
-                      <div class="usage-meter-head"><span>Weekly, 7 days</span><b>55%</b></div>
-                      <div class="usage-track" aria-hidden="true"><i class="usage-fill"></i><i class="usage-tick"></i></div>
-                      <div class="usage-forecast" aria-hidden="true"><i class="usage-forecast-line"></i></div>
-                      <p class="usage-window">Resets in 2d 0h</p>
-                      <p class="usage-projection">71% into the window, on pace for <b>77% by reset</b></p>
-                    </div>
-                  </article>
-                  <article class="usage-plan">
-                    <header class="usage-plan-head"><b>Codex</b><span>Plus</span></header>
-                    <div class="usage-meter story-beat is-early" data-sequence="3" data-hold="1250"
-                      data-caption="A fresh window says it cannot project yet rather than guessing"
-                      style="--fill: 0%; --pace: 0%; --project: 0%;">
-                      <div class="usage-meter-head"><span>Session, 5 hours</span><b>0%</b></div>
-                      <div class="usage-track" aria-hidden="true"><i class="usage-fill"></i><i class="usage-tick"></i></div>
-                      <div class="usage-forecast" aria-hidden="true"><i class="usage-forecast-line"></i></div>
-                      <p class="usage-window">Resets in 5h 0m</p>
-                      <p class="usage-projection">0% into the window, too early to project</p>
-                    </div>
-                    <div class="usage-meter story-beat is-over" data-sequence="4" data-hold="1750"
-                      data-caption="An overrun is visible days before it would land"
-                      style="--fill: 30%; --pace: 18%; --project: 100%;">
-                      <div class="usage-meter-head"><span>Weekly, 7 days</span><b>30%</b></div>
-                      <div class="usage-track" aria-hidden="true"><i class="usage-fill"></i><i class="usage-tick"></i></div>
-                      <div class="usage-forecast" aria-hidden="true"><i class="usage-forecast-line"></i></div>
-                      <p class="usage-window">Resets in 5d 17h</p>
-                      <p class="usage-projection">18% into the window, on pace for <b>168% by reset</b></p>
-                    </div>
-                  </article>
-                  <div class="usage-policy story-beat" data-sequence="5" data-hold="1600"
-                    data-caption="Plans carry the work, metered calls stay the exception">
-                    <span aria-hidden="true">&#8627;</span>
-                    <p><b>Plans first.</b> Fixed-price subscriptions do the everyday running. Metered API billing is used only where no plan covers the job.</p>
-                  </div>
-                  <p class="usage-footnote">Account-wide rolling plan limits, not individual conversation token counts. The tick is where a flat burn would stand right now, and the line under each bar projects the window forward at the current rate.</p>
-                </div>
-              </div>
-              <div class="story-controls">
-                <button class="story-replay" type="button" data-story-replay>Replay the meters</button>
-                <span data-story-caption>Consumption is read per plan, not per conversation</span>
-              </div>
+            <p>Requests can move between providers when needed, while usage and cost remain measured by provider and every fallback stays visible.</p>
+            <figure class="model-consumption-proof">
+              <a class="model-consumption-link" href="/assets/proof-model-consumption.png" target="_blank" rel="noopener" aria-label="Open the full-size model plan consumption report">
+                <span class="model-consumption-crop">
+                  <img src="/assets/proof-model-consumption.png" width="970" height="1770" loading="lazy" decoding="async"
+                    alt="A daily status report showing Claude and Codex session and weekly plan consumption." />
+                </span>
+              </a>
               <figcaption>
-                <b>Pace is the number that matters.</b>
-                Each window is read against how far it has already run and projected forward at the
-                current rate, so a limit is seen coming rather than hit.
+                <b>Plan consumption is visible too.</b>
+                Session and weekly limits are tracked before they become blockers.
               </figcaption>
             </figure>
           </div>
