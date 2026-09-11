@@ -2738,6 +2738,10 @@ html[dir="rtl"] .hero-actions {
 
 .model-proof-row {
   margin-top: clamp(42px, 5vw, 66px);
+  /* The left column now carries a live panel rather than a crop, so the
+     two halves are given equal room and hung from the top. */
+  grid-template-columns: minmax(300px, 1fr) minmax(0, 1fr);
+  align-items: start;
 }
 
 .ops-health-row {
@@ -2760,54 +2764,295 @@ html[dir="rtl"] .hero-actions {
   line-height: 1.6;
 }
 
-.model-consumption-proof {
+/* ---------------------------------------------------------------
+   Plan-consumption pacer. Replaces the static dashboard crop with a
+   coded recreation, so the argument the panel actually makes (a bar
+   alone is not a verdict; the pace against the window is) can be
+   animated and stays legible with motion or scripting off.
+   --------------------------------------------------------------- */
+
+.model-row-note {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: clamp(16px, 1.7vw, 18px);
+  line-height: 1.6;
+}
+
+.model-row-note:last-of-type {
+  margin-bottom: 0;
+}
+
+.model-row-note b {
+  color: var(--ink);
+}
+
+.usage-pacer {
   margin: 26px 0 0;
 }
 
-.model-consumption-link {
-  display: block;
-  border-radius: 22px;
-  color: inherit;
-  box-shadow: 0 20px 44px rgba(31, 39, 34, 0.12);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.model-consumption-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 52px rgba(31, 39, 34, 0.16);
-}
-
-.model-consumption-link:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-}
-
-.model-consumption-crop {
-  display: block;
-  aspect-ratio: 970 / 900;
+.usage-pacer-window {
   overflow: hidden;
-  border: 1px solid var(--line-strong);
-  border-radius: inherit;
-  background: #f7f7f5;
+  border: 1px solid rgba(24, 33, 30, 0.26);
+  border-radius: 24px;
+  color: var(--white);
+  background: #111b17;
+  box-shadow: var(--shadow);
 }
 
-.model-consumption-crop img {
+.usage-pacer-body {
+  display: grid;
+  gap: 14px;
+  padding: 18px 18px 20px;
+}
+
+.usage-plan {
+  display: grid;
+  gap: 14px;
+  padding: 15px 15px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.usage-plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.usage-plan-head b {
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.usage-plan-head span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+.usage-meter + .usage-meter {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.usage-meter-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+}
+
+.usage-meter-head b {
+  color: var(--white);
+  font-variant-numeric: tabular-nums;
+}
+
+.usage-track {
+  position: relative;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.usage-fill {
   display: block;
-  width: 100%;
-  height: auto;
-  transform: translateY(-18.64%);
+  width: var(--fill);
+  height: 100%;
+  border-radius: inherit;
+  background: #78cfa6;
 }
 
-.model-consumption-proof figcaption {
-  margin-top: 13px;
-  color: var(--muted);
-  font-size: 14px;
+/* Where a flat burn through the window would stand at this moment. */
+.usage-tick {
+  position: absolute;
+  top: -3px;
+  left: var(--pace);
+  width: 2px;
+  height: 13px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.usage-meter.is-early .usage-tick {
+  display: none;
+}
+
+/* The same window carried forward at the current rate. */
+.usage-forecast {
+  position: relative;
+  height: 9px;
+  margin-top: 4px;
+}
+
+.usage-forecast-line {
+  position: relative;
+  display: block;
+  width: var(--project);
+  height: 3px;
+  border-radius: 2px;
+  background: currentcolor;
+}
+
+.usage-meter.is-ok .usage-forecast {
+  color: #9fe0bf;
+}
+
+.usage-meter.is-warn .usage-forecast {
+  color: #f6c98a;
+}
+
+.usage-meter.is-over .usage-forecast {
+  color: #f0947c;
+}
+
+.usage-meter.is-early .usage-forecast-line {
+  display: none;
+}
+
+/* The over-limit projection runs past the end of the track. */
+.usage-meter.is-over .usage-forecast-line::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+  transform: rotate(45deg);
+}
+
+.usage-window {
+  margin: 3px 0 0;
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 11px;
+}
+
+.usage-projection {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.usage-meter.is-ok .usage-projection b {
+  color: #9fe0bf;
+}
+
+.usage-meter.is-warn .usage-projection b {
+  color: #f6c98a;
+}
+
+.usage-meter.is-over .usage-projection b {
+  color: #f0947c;
+}
+
+.usage-policy {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 9px;
+  padding: 13px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.usage-policy span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.usage-policy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
   line-height: 1.5;
 }
 
-.model-consumption-proof figcaption b {
+.usage-policy b {
+  color: var(--white);
+}
+
+.usage-footnote {
+  margin: 2px 0 0;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.usage-pacer > figcaption {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.usage-pacer > figcaption b {
   display: block;
+  margin-bottom: 3px;
   color: var(--ink);
+}
+
+.usage-pacer .story-controls {
+  padding: 12px 2px 0;
+  color: var(--muted);
+}
+
+/* Motion. Everything above renders at its final value, so the panel is
+   complete with scripting off or motion reduced; these rules only apply
+   once the player has taken ownership. */
+.proof-motion-enabled .usage-fill,
+.proof-motion-enabled .usage-forecast-line {
+  width: 0;
+}
+
+.proof-motion-enabled .usage-tick,
+.proof-motion-enabled .usage-projection {
+  opacity: 0;
+}
+
+.proof-motion-enabled .usage-meter.is-shown .usage-fill {
+  width: var(--fill);
+  transition: width 760ms cubic-bezier(0.2, 0.8, 0.2, 1) 140ms;
+}
+
+.proof-motion-enabled .usage-meter.is-shown .usage-tick {
+  opacity: 1;
+  transition: opacity 280ms ease 820ms;
+}
+
+.proof-motion-enabled .usage-meter.is-shown .usage-forecast-line {
+  width: var(--project);
+  transition: width 620ms cubic-bezier(0.2, 0.8, 0.2, 1) 900ms;
+}
+
+.proof-motion-enabled .usage-meter.is-shown .usage-projection {
+  opacity: 1;
+  transition: opacity 300ms ease 1180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-motion-enabled .usage-fill,
+  .proof-motion-enabled .usage-meter.is-shown .usage-fill {
+    width: var(--fill);
+    transition: none;
+  }
+
+  .proof-motion-enabled .usage-forecast-line,
+  .proof-motion-enabled .usage-meter.is-shown .usage-forecast-line {
+    width: var(--project);
+    transition: none;
+  }
+
+  .proof-motion-enabled .usage-tick,
+  .proof-motion-enabled .usage-projection {
+    opacity: 1;
+    transition: none;
+  }
 }
 
 @media (max-width: 980px) {
