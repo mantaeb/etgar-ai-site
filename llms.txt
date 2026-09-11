@@ -29,7 +29,7 @@ The "See it running" section of the English page carries unedited screenshots of
 
 ## Current boundary
 
-This is a working personal system running in one household, not an off-the-shelf product. Etgar is holding a small number of private conversations with people interested in a similar system built around their lives.
+This is a working personal system running in one household, not an off-the-shelf product.
 
 ## Identity reference
 
