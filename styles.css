@@ -636,8 +636,12 @@ h1 {
   text-decoration: none;
 }
 
-.trust {
-  border-top: 1px solid var(--line);
+#demo-ops {
+  border-bottom: 1px solid var(--line);
+}
+
+.trust-inline {
+  margin-top: clamp(64px, 7vw, 96px);
 }
 
 .early {
